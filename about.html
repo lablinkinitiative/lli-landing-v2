@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — LabLink Initiative</title>
+  <meta name="description" content="LabLink Initiative is a 501(c)(3) nonprofit co-founded by Michael Sarmiento and Sean Florez to connect college students with career experiences at National Laboratories, federal agencies, and industry partners." />
+  <meta name="theme-color" content="#2E3A23" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <style>
+    @layer reset, tokens, base, layout, components, utilities;
+    @layer reset {
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { min-height: 100dvh; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+      img, picture, video, canvas, svg { display: block; max-width: 100%; }
+      input, button, textarea, select { font: inherit; }
+      p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+      ol[role="list"], ul[role="list"] { list-style: none; padding-inline: 0; }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      }
+    }
+    @layer tokens {
+      :root {
+        --brand-900: #2E3A23; --brand-700: #4A5F39; --brand-500: #6E8A53;
+        --brand-300: #A7BE8E; --brand-100: #DCE8CC;
+        --accent-lime: #A5C43A; --accent-lime-dark: #8AAF1E; --on-lime: #1D2A10;
+        --accent-sand: #CDB892; --accent-teal: #3F8E9E;
+        --canvas: #FAF8F0; --surface: #F3F0E6; --surface-2: #E8E3D4; --border: #C9C2AE;
+        --text-strong: #111312; --text-default: #253021; --text-muted: #5F6A58; --white: #FFFFFF;
+        --text-xs: clamp(0.72rem, 2vw, 0.8rem); --text-sm: clamp(0.875rem, 2.5vw, 0.9375rem);
+        --text-base: clamp(1rem, 3vw, 1.0625rem); --text-lg: clamp(1.1rem, 3vw, 1.25rem);
+        --text-xl: clamp(1.25rem, 4vw, 1.5rem); --text-2xl: clamp(1.5rem, 5vw, 2.25rem);
+        --text-hero: clamp(2rem, 7vw, 3.25rem);
+        --sp-xs: clamp(0.5rem, 2vw, 0.75rem); --sp-sm: clamp(0.75rem, 3vw, 1rem);
+        --sp-md: clamp(1rem, 4vw, 1.5rem); --sp-lg: clamp(1.5rem, 5vw, 2.5rem);
+        --sp-xl: clamp(2rem, 6vw, 4rem); --sp-2xl: clamp(3rem, 8vw, 6rem);
+        --max-w: 1100px; --max-w-sm: 680px;
+        --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-pill: 999px;
+        --shadow-sm: 0 1px 4px rgba(17,19,18,0.08); --shadow-md: 0 4px 16px rgba(17,19,18,0.10);
+        --ease: cubic-bezier(0.25,0.46,0.45,0.94); --t-fast: 120ms; --t-base: 200ms;
+      }
+    }
+    @layer base {
+      body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--canvas); color: var(--text-default); font-size: var(--text-base); }
+      h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; color: var(--text-strong); letter-spacing: -0.01em; }
+      a { color: inherit; text-decoration: none; }
+      :focus-visible { outline: 3px solid var(--accent-lime); outline-offset: 3px; border-radius: var(--radius-sm); }
+      :focus:not(:focus-visible) { outline: none; }
+      :target { scroll-margin-top: 72px; }
+    }
+    @layer layout {
+      .wrap { width: min(var(--max-w), 100% - 2rem); margin-inline: auto; }
+      .wrap-sm { width: min(var(--max-w-sm), 100% - 2rem); margin-inline: auto; }
+    }
+    @layer components {
+      /* Skip link */
+      .skip-link { position: absolute; top: -100%; left: 1rem; z-index: 9999; background: var(--brand-700); color: var(--white); padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 0 0 var(--radius-md) var(--radius-md); transition: top var(--t-fast) var(--ease); }
+      .skip-link:focus { top: 0; }
+
+      /* ── NAV ── */
+      .site-header { position: sticky; top: 0; z-index: 200; background: var(--brand-900); }
+      .nav-bar { display: flex; align-items: center; justify-content: space-between; height: 64px; padding-inline: 1.25rem; max-width: var(--max-w); margin: 0 auto; }
+      .nav-logo { font-weight: 700; font-size: 1rem; color: var(--white); letter-spacing: -0.02em; flex-shrink: 0; }
+      .nav-logo em { font-style: normal; color: var(--accent-lime); }
+      .nav-links { display: none; list-style: none; gap: 0.125rem; align-items: center; }
+      .nav-links a { display: flex; align-items: center; height: 40px; padding-inline: 0.875rem; color: var(--brand-300); font-size: 0.875rem; font-weight: 500; border-radius: var(--radius-sm); transition: color var(--t-fast), background var(--t-fast); white-space: nowrap; }
+      .nav-links a:hover, .nav-links a[aria-current] { color: var(--white); background: rgba(255,255,255,0.07); }
+      .nav-links .nav-cta { background: var(--accent-lime); color: var(--on-lime) !important; font-weight: 700; margin-left: 0.375rem; }
+      .nav-links .nav-cta:hover { background: var(--accent-lime-dark); }
+      .hamburger { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 48px; height: 48px; background: none; border: none; cursor: pointer; padding: 0; border-radius: var(--radius-sm); transition: background var(--t-fast); flex-shrink: 0; }
+      .hamburger:hover { background: rgba(255,255,255,0.08); }
+      .hamburger-bar { width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform var(--t-base) var(--ease), opacity var(--t-fast); }
+      .site-header[data-menu-open] .hamburger-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .site-header[data-menu-open] .hamburger-bar:nth-child(2) { opacity: 0; }
+      .site-header[data-menu-open] .hamburger-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .mobile-menu { position: fixed; inset: 64px 0 0 0; z-index: 190; background: var(--brand-900); display: flex; flex-direction: column; padding: 1.5rem 1.5rem 2rem; overflow-y: auto; transform: translateX(100%); transition: transform var(--t-base) var(--ease); visibility: hidden; }
+      .mobile-menu.is-open { transform: translateX(0); visibility: visible; }
+      .mobile-menu nav { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: auto; }
+      .mobile-menu nav a { display: flex; align-items: center; height: 60px; padding-inline: 1rem; color: var(--brand-300); font-size: 1.125rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-sm); transition: color var(--t-fast), background var(--t-fast); }
+      .mobile-menu nav a:last-of-type { border-bottom: none; }
+      .mobile-menu nav a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+      .mobile-menu-cta { display: flex; align-items: center; justify-content: center; height: 56px; background: var(--accent-lime); color: var(--on-lime); font-weight: 700; font-size: 1rem; border-radius: var(--radius-md); margin-top: 1.5rem; transition: background var(--t-fast); }
+      .mobile-menu-cta:hover { background: var(--accent-lime-dark); }
+      @media (min-width: 768px) {
+        .nav-links { display: flex; }
+        .hamburger { display: none; }
+        .mobile-menu { display: none; }
+      }
+
+      /* Sticky mobile CTA */
+      .sticky-cta-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 180; background: var(--brand-900); border-top: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 1.25rem; padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); display: flex; gap: 0.5rem; }
+      .sticky-cta-bar a { flex: 1; display: flex; align-items: center; justify-content: center; height: 48px; border-radius: var(--radius-md); font-weight: 700; font-size: 0.9rem; }
+      .scta-primary { background: var(--accent-lime); color: var(--on-lime); }
+      .scta-primary:hover { background: var(--accent-lime-dark); }
+      .scta-secondary { background: rgba(255,255,255,0.08); color: var(--white); border: 1px solid rgba(255,255,255,0.15); }
+      @media (min-width: 768px) { .sticky-cta-bar { display: none; } }
+      @media (max-width: 767px) { body { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); } }
+
+      /* Buttons */
+      .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.875rem 1.875rem; border-radius: var(--radius-md); font-weight: 700; font-size: 0.9375rem; border: none; cursor: pointer; transition: background var(--t-fast), transform var(--t-fast); text-decoration: none; min-height: 52px; }
+      .btn-lime { background: var(--accent-lime); color: var(--on-lime); }
+      .btn-lime:hover { background: var(--accent-lime-dark); }
+      .btn-white { background: var(--white); color: var(--brand-900); }
+      .btn-white:hover { opacity: 0.9; }
+
+      /* Page hero */
+      .page-hero { background: linear-gradient(140deg, var(--brand-900) 0%, #3a5230 60%, var(--brand-700) 100%); color: var(--white); padding: var(--sp-xl) 1.25rem var(--sp-lg); text-align: center; position: relative; overflow: hidden; }
+      .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 85% 20%, rgba(165,196,58,0.07) 0%, transparent 70%); pointer-events: none; }
+      .breadcrumb { font-size: var(--text-xs); color: var(--brand-300); margin-bottom: var(--sp-sm); }
+      .breadcrumb a { color: var(--brand-300); }
+      .breadcrumb a:hover { color: var(--white); }
+      .page-hero h1 { position: relative; font-size: var(--text-hero); color: var(--white); max-width: 700px; margin-inline: auto; margin-bottom: 0.75rem; }
+      .page-hero h1 em { color: var(--accent-lime); }
+      .page-hero > .hero-sub { position: relative; color: var(--brand-300); font-size: var(--text-lg); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+      /* Section shared */
+      .section { padding: var(--sp-2xl) 1.25rem; }
+      @media (min-width: 768px) { .section { padding: var(--sp-2xl) 2rem; } }
+      .section-tag { display: inline-block; font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-500); margin-bottom: 0.5rem; }
+      .section-title { font-size: var(--text-2xl); font-weight: 700; margin-bottom: 0.875rem; }
+      .section-intro { font-size: var(--text-lg); color: var(--text-muted); line-height: 1.7; max-width: 640px; margin-bottom: var(--sp-lg); }
+
+      /* Welcome photos */
+      .welcome-grid { display: grid; grid-template-columns: 1fr; gap: var(--sp-sm); padding: var(--sp-lg) 1.25rem 0; }
+      @media (min-width: 600px) { .welcome-grid { grid-template-columns: repeat(3, 1fr); } }
+      .welcome-photo { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 16/9; }
+      .welcome-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* Mission block — mobile-first single column */
+      .mission-inner { display: grid; grid-template-columns: 1fr; gap: var(--sp-lg); }
+      @media (min-width: 900px) { .mission-inner { grid-template-columns: 1fr 1fr; } }
+      .mission-text p { font-size: var(--text-base); color: var(--text-muted); line-height: 1.75; margin-bottom: var(--sp-sm); }
+      .mission-text p:last-child { margin-bottom: 0; }
+      .mission-aside { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--sp-lg); }
+      .mission-aside h3 { font-size: var(--text-xl); margin-bottom: var(--sp-md); }
+      .value-list { display: flex; flex-direction: column; gap: var(--sp-sm); }
+      .value-item { display: flex; gap: 0.875rem; align-items: flex-start; }
+      .value-icon { width: 40px; height: 40px; min-width: 40px; background: var(--brand-700); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+      .value-body h4 { font-size: var(--text-sm); font-weight: 700; color: var(--text-strong); margin-bottom: 0.15rem; font-family: 'Inter', sans-serif; }
+      .value-body p { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; }
+
+      /* Founders */
+      .founders-bg { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+      .founder-card { background: var(--canvas); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--sp-lg); margin-bottom: var(--sp-md); }
+      .founder-card:last-child { margin-bottom: 0; }
+      .founder-head { display: flex; gap: var(--sp-md); align-items: flex-start; margin-bottom: var(--sp-md); flex-wrap: wrap; }
+      .founder-avatar { width: 96px; height: 96px; min-width: 96px; border-radius: var(--radius-md); overflow: hidden; background: var(--brand-700); }
+      .founder-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+      .founder-title h3 { font-size: var(--text-xl); color: var(--text-strong); margin-bottom: 0.2rem; }
+      .founder-role { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-500); }
+      .founder-body p { font-size: var(--text-base); color: var(--text-muted); line-height: 1.75; margin-bottom: var(--sp-sm); }
+      .founder-body p:last-child { margin-bottom: 0; }
+      .founder-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 0.625rem; margin-top: var(--sp-md); padding-top: var(--sp-md); border-top: 1px solid var(--border); }
+      @media (min-width: 600px) { .founder-highlights { grid-template-columns: repeat(4, 1fr); } }
+      .highlight { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.75rem 1rem; }
+      .highlight-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.2rem; }
+      .highlight-val { font-size: var(--text-xs); font-weight: 700; color: var(--text-default); line-height: 1.4; }
+
+      /* Impact */
+      .impact-section { background: var(--brand-900); color: var(--white); padding: var(--sp-2xl) 1.25rem; text-align: center; }
+      .impact-section .section-tag { color: var(--accent-lime); }
+      .impact-section .section-title { color: var(--white); }
+      .impact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-sm); max-width: 900px; margin: var(--sp-lg) auto 0; }
+      @media (min-width: 600px) { .impact-grid { grid-template-columns: repeat(3, 1fr); } }
+      .impact-item { padding: var(--sp-md); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); }
+      .impact-num { font-family: 'Playfair Display', serif; font-size: clamp(1.75rem, 6vw, 2.5rem); font-weight: 700; color: var(--accent-lime); line-height: 1; }
+      .impact-label { font-size: var(--text-sm); color: var(--brand-300); margin-top: 0.375rem; line-height: 1.45; }
+
+      /* Roadmap */
+      .roadmap-grid { display: grid; grid-template-columns: 1fr; gap: var(--sp-sm); margin-top: var(--sp-lg); }
+      @media (min-width: 600px) { .roadmap-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 900px) { .roadmap-grid { grid-template-columns: repeat(4, 1fr); } }
+      .roadmap-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--sp-md); position: relative; }
+      .roadmap-card.active { border-color: var(--brand-700); background: rgba(74,95,57,0.05); }
+      .roadmap-phase { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-500); margin-bottom: 0.4rem; }
+      .roadmap-years { font-family: 'Playfair Display', serif; font-size: var(--text-xl); font-weight: 700; color: var(--text-strong); margin-bottom: 0.75rem; }
+      .roadmap-items { display: flex; flex-direction: column; gap: 0.4rem; list-style: none; }
+      .roadmap-items li { font-size: var(--text-sm); color: var(--text-muted); display: flex; gap: 0.5rem; }
+      .roadmap-items li::before { content: '→'; color: var(--brand-500); flex-shrink: 0; }
+      .phase-badge { position: absolute; top: 1rem; right: 1rem; background: var(--accent-lime); color: var(--on-lime); font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: var(--radius-sm); }
+
+      /* Partners */
+      .partner-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.625rem; margin-top: var(--sp-lg); }
+      .partner-chip { background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); padding: 0.5rem 1rem; border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 500; min-height: 44px; display: flex; align-items: center; }
+      .partner-chip.mou { border-color: rgba(165,196,58,0.4); background: rgba(165,196,58,0.06); color: var(--brand-700); font-weight: 600; }
+
+      /* CTA banner */
+      .page-cta { background: linear-gradient(140deg, var(--brand-900) 0%, #3a5230 60%, var(--brand-700) 100%); color: var(--white); padding: var(--sp-2xl) 1.25rem; text-align: center; }
+      .page-cta h2 { font-size: var(--text-2xl); color: var(--white); margin-bottom: 0.75rem; }
+      .page-cta p { color: var(--brand-300); font-size: var(--text-base); max-width: 520px; margin: 0 auto var(--sp-lg); line-height: 1.7; }
+      .cta-btns { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+      .cta-btns .btn { width: 100%; max-width: 280px; }
+      @media (min-width: 480px) { .cta-btns { flex-direction: row; justify-content: center; } .cta-btns .btn { width: auto; max-width: none; } }
+
+      /* Footer */
+      footer { background: var(--brand-900); color: var(--brand-300); padding: var(--sp-md) 1.25rem; font-size: var(--text-sm); }
+      .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+      @media (min-width: 600px) { .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+      footer a { color: var(--brand-300); }
+      footer a:hover { color: var(--white); }
+      .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    }
+    @layer utilities {
+      .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+      .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+      .text-center { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header" role="banner" id="site-header">
+  <div class="nav-bar">
+    <a href="/" class="nav-logo">Lab<em>Link</em> Initiative</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/about.html" aria-current="page">About</a></li>
+      <li><a href="/internships.html">Internships</a></li>
+      <li><a href="https://lablinkinitiative.substack.com" target="_blank" rel="noopener">Newsletter</a></li>
+      <li><a href="/donate.html" class="nav-cta">Donate</a></li>
+    </ul>
+    <button class="hamburger" id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation">
+      <span class="hamburger-bar" aria-hidden="true"></span>
+      <span class="hamburger-bar" aria-hidden="true"></span>
+      <span class="hamburger-bar" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation" hidden>
+  <nav>
+    <a href="/about.html">About Us</a>
+    <a href="/internships.html">Find Internships</a>
+    <a href="https://lablinkinitiative.substack.com" target="_blank" rel="noopener">Newsletter</a>
+  </nav>
+  <a href="/donate.html" class="mobile-menu-cta">Support Our Mission →</a>
+</div>
+
+<div class="sticky-cta-bar" aria-hidden="true">
+  <a href="/internships.html" class="scta-primary">Find Internships</a>
+  <a href="/donate.html" class="scta-secondary">Donate</a>
+</div>
+
+<main id="main" tabindex="-1">
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="breadcrumb"><a href="/">Home</a> &rsaquo; About Us</p>
+    <h1>About <em>LabLink Initiative</em></h1>
+    <p class="hero-sub" style="position:relative;">A 501(c)(3) nonprofit co-founded by two people who bridged the gap from community college to national laboratories — and built an organization to help others do the same.</p>
+  </div>
+
+  <!-- WELCOME PHOTOS -->
+  <div class="welcome-grid">
+    <div class="welcome-photo"><img src="images/about-welcome-team.jpg" alt="LabLink team collaboration" loading="lazy" width="360" height="202" /></div>
+    <div class="welcome-photo"><img src="images/about-welcome-office.jpg" alt="Professional workspace" loading="lazy" width="360" height="202" /></div>
+    <div class="welcome-photo"><img src="images/about-welcome-students.jpg" alt="Students working together" loading="lazy" width="360" height="202" /></div>
+  </div>
+
+  <!-- MISSION -->
+  <section class="section" aria-labelledby="mission-h2">
+    <div class="wrap mission-inner">
+      <div class="mission-text">
+        <span class="section-tag">Our Mission</span>
+        <h2 class="section-title" id="mission-h2">"Educate, Empower, Connect"</h2>
+        <p>LabLink Initiative educates and empowers college-aged students by providing relevant career experiences. We connect students with valuable opportunities in STEM and Business through partnerships with National Labs, federal agencies, and industry partners — bridging the gap between academic learning and professional application.</p>
+        <p>We exist because opportunity shouldn't depend on who you know. Too many qualified students — especially at community colleges — never even learn that national lab internships exist. We fix that.</p>
+        <p><strong>All of our programs are free for students.</strong> We're funded by grants, sponsorships, and donations from people who believe access to great opportunities shouldn't have a price tag.</p>
+      </div>
+      <aside class="mission-aside" aria-labelledby="values-h3">
+        <h3 id="values-h3">Our Core Values</h3>
+        <ul class="value-list" role="list">
+          <li class="value-item">
+            <div class="value-icon" aria-hidden="true">💪</div>
+            <div class="value-body"><h4>Empowerment</h4><p>We build students up through knowledge, skills, and real-world experience — not just information.</p></div>
+          </li>
+          <li class="value-item">
+            <div class="value-icon" aria-hidden="true">⭐</div>
+            <div class="value-body"><h4>Excellence</h4><p>We hold our programs, materials, and partnerships to a high standard because students deserve the best.</p></div>
+          </li>
+          <li class="value-item">
+            <div class="value-icon" aria-hidden="true">🤝</div>
+            <div class="value-body"><h4>Collaboration</h4><p>We partner with the labs, agencies, and organizations that actually hire students — not just broker introductions.</p></div>
+          </li>
+          <li class="value-item">
+            <div class="value-icon" aria-hidden="true">🔬</div>
+            <div class="value-body"><h4>Innovation</h4><p>From our AI-powered CE-CDP platform to the LinkBot Newsletter, we use technology to scale our mission.</p></div>
+          </li>
+          <li class="value-item">
+            <div class="value-icon" aria-hidden="true">🌍</div>
+            <div class="value-body"><h4>Inclusivity</h4><p>We prioritize students who have been underrepresented in STEM and national security fields.</p></div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- FOUNDERS -->
+  <section class="section founders-bg" aria-labelledby="founders-h2" id="founders">
+    <div class="wrap">
+      <span class="section-tag">Leadership</span>
+      <h2 class="section-title" id="founders-h2">Founded by people who made the journey</h2>
+      <p class="section-intro">Michael and Sean built LabLink Initiative because they went from community college and university to working at national laboratories — and knew that most students never get the chance because no one tells them it's possible.</p>
+
+      <article class="founder-card" aria-labelledby="michael-h3">
+        <div class="founder-head">
+          <div class="founder-avatar">
+            <img src="images/michael-sarmento.avif" alt="Michael Sarmiento, Co-Founder and Executive Director" loading="lazy" width="96" height="96" />
+          </div>
+          <div class="founder-title">
+            <h3 id="michael-h3">Michael Sarmiento</h3>
+            <p class="founder-role">Co-Founder &amp; Executive Director</p>
+          </div>
+        </div>
+        <div class="founder-body">
+          <p>Michael's path is the model LabLink Initiative was built to replicate. He started at community college and made it to DOE/Idaho National Laboratory, the California Environmental Protection Agency (CARB), and NNSA/Lawrence Livermore National Laboratory — three of the most competitive science and policy institutions in the country.</p>
+          <p>His background in Business Analytics gives LLI a perspective that most STEM-focused organizations miss: business and policy students belong in these spaces too. National labs need analysts, operations managers, project coordinators, and communicators — not just scientists.</p>
+          <p>As PTK (Phi Theta Kappa) President at Sacramento City College in 2024–25, Michael co-organized LLI's first major public event — a national webinar with INL that reached hundreds of community college students. He understands the community college experience from the inside, and leads LLI's partnerships, programming, and strategy with that perspective.</p>
+        </div>
+        <div class="founder-highlights">
+          <div class="highlight"><div class="highlight-label">Education</div><div class="highlight-val">Business Analytics</div></div>
+          <div class="highlight"><div class="highlight-label">DOE Experience</div><div class="highlight-val">Idaho National Lab (INL)</div></div>
+          <div class="highlight"><div class="highlight-label">Other</div><div class="highlight-val">NNSA/LLNL, CA EPA/CARB</div></div>
+          <div class="highlight"><div class="highlight-label">Community</div><div class="highlight-val">PTK President, SCC 2024–25</div></div>
+        </div>
+      </article>
+
+      <article class="founder-card" aria-labelledby="sean-h3">
+        <div class="founder-head">
+          <div class="founder-avatar">
+            <img src="images/sean-florez.avif" alt="Sean Florez, Co-Founder and Director of Technology Innovation" loading="lazy" width="96" height="96" />
+          </div>
+          <div class="founder-title">
+            <h3 id="sean-h3">Sean Florez</h3>
+            <p class="founder-role">Co-Founder &amp; Director of Technology Innovation</p>
+          </div>
+        </div>
+        <div class="founder-body">
+          <p>Sean is a Ph.D. Materials Scientist with a research and engineering career that spans the DOE national laboratory system, the U.S. Air Force Research Laboratory (AFRL), and the Department of Defense's Joint Staff as a Foreign Technology Officer. He earned his Ph.D. in Materials Science from the University of Colorado Boulder, and his B.S. from the University of Florida.</p>
+          <p>He holds two U.S. patents (US-2024-0076793A1 and US-1154-4916B2), reflecting the depth and novelty of his research contributions. His experience across DOE, DoD, and AFRL spans the full spectrum of federally-funded science — giving LLI connections and credibility with some of the most competitive programs in the country.</p>
+          <p>Sean architected and built the CE-CDP (Clean Energy Career Development Platform) — LLI's AI-powered platform for skill gap assessment, personalized learning pathways, and internship matching. He leads technology strategy, platform development, and technical partnerships, and keeps LLI at the forefront of what's possible.</p>
+        </div>
+        <div class="founder-highlights">
+          <div class="highlight"><div class="highlight-label">Education</div><div class="highlight-val">Ph.D. Materials Science, CU Boulder · B.S. UF</div></div>
+          <div class="highlight"><div class="highlight-label">DOE Experience</div><div class="highlight-val">Idaho National Laboratory (INL)</div></div>
+          <div class="highlight"><div class="highlight-label">Defense</div><div class="highlight-val">AFRL + Joint Staff / DoD FTO</div></div>
+          <div class="highlight"><div class="highlight-label">Patents</div><div class="highlight-val">US-2024-0076793A1 · US-1154-4916B2</div></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section" aria-labelledby="impact-h2">
+    <div class="wrap text-center">
+      <span class="section-tag">5-Year Goals</span>
+      <h2 class="section-title" id="impact-h2">Where we're going</h2>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-item"><div class="impact-num">250+</div><div class="impact-label">Students mentored directly</div></div>
+      <div class="impact-item"><div class="impact-num">200+</div><div class="impact-label">Internship placements facilitated</div></div>
+      <div class="impact-item"><div class="impact-num">$50K+</div><div class="impact-label">Scholarships and grants awarded</div></div>
+      <div class="impact-item"><div class="impact-num">25+</div><div class="impact-label">Institutional partners</div></div>
+      <div class="impact-item"><div class="impact-num">90%</div><div class="impact-label">Target participant satisfaction</div></div>
+      <div class="impact-item"><div class="impact-num">10+</div><div class="impact-label">Annual workshops &amp; seminars</div></div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section" aria-labelledby="roadmap-h2">
+    <div class="wrap">
+      <span class="section-tag">Roadmap</span>
+      <h2 class="section-title" id="roadmap-h2">Building for the long term</h2>
+      <p class="section-intro">LLI is a young organization with an ambitious multi-year plan. Here's where we're going — and where we are right now.</p>
+      <div class="roadmap-grid">
+        <div class="roadmap-card active">
+          <span class="phase-badge">Now</span>
+          <div class="roadmap-phase">Phase 1</div>
+          <div class="roadmap-years">Years 1–2</div>
+          <ul class="roadmap-items">
+            <li>Launch AI-powered CE-CDP platform</li>
+            <li>Establish 25+ institutional partnerships</li>
+            <li>Connect 500+ students to opportunities</li>
+            <li>Launch LinkBot Newsletter (5,000+ subscribers)</li>
+            <li>Host first major events (PTK webinar ✓)</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-phase">Phase 2</div>
+          <div class="roadmap-years">Years 2–3</div>
+          <ul class="roadmap-items">
+            <li>Expand to 1,500+ students served</li>
+            <li>Develop clean energy curriculum</li>
+            <li>Launch $20K scholarship program</li>
+            <li>Deepen industry partnerships</li>
+            <li>Regional presence in multiple metros</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-phase">Phase 3</div>
+          <div class="roadmap-years">Years 3–4</div>
+          <ul class="roadmap-items">
+            <li>Reach 3,000+ program participants</li>
+            <li>Facilitate 200+ annual internships</li>
+            <li>Expand scholarships to $35K/year</li>
+            <li>Full CE-CDP deployment at scale</li>
+          </ul>
+        </div>
+        <div class="roadmap-card">
+          <div class="roadmap-phase">Phase 4</div>
+          <div class="roadmap-years">Years 4–5</div>
+          <ul class="roadmap-items">
+            <li>Organizational sustainability achieved</li>
+            <li>National reach across all time zones</li>
+            <li>LabLink recognized as leading national lab career org</li>
+            <li>$50K+ in annual scholarship awards</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PARTNERS -->
+  <section class="section text-center" aria-labelledby="partners-h2" id="partners">
+    <div class="wrap">
+      <span class="section-tag">Partners &amp; Affiliates</span>
+      <h2 class="section-title" id="partners-h2">Our network</h2>
+      <p class="section-intro" style="margin-inline:auto;">These are the organizations we work with — national labs, federal agencies, community organizations, and professional associations aligned with our mission.</p>
+      <div class="partner-chips">
+        <div class="partner-chip mou">✓ SNTJ — MOU Signed</div>
+        <div class="partner-chip mou">✓ SSG&amp;I — MOU Signed</div>
+        <div class="partner-chip">Idaho National Laboratory (INL)</div>
+        <div class="partner-chip">Sandia National Laboratories</div>
+        <div class="partner-chip">LLNL</div>
+        <div class="partner-chip">ORNL</div>
+        <div class="partner-chip">LBNL</div>
+        <div class="partner-chip">DOE SULI Program</div>
+        <div class="partner-chip">DOE CCI Program</div>
+        <div class="partner-chip">Phi Theta Kappa (PTK)</div>
+        <div class="partner-chip">ALPFA</div>
+        <div class="partner-chip">CEC4A Network</div>
+        <div class="partner-chip">AFRL</div>
+        <div class="partner-chip">NASA</div>
+        <div class="partner-chip">Zintellect / ORISE</div>
+      </div>
+      <p style="margin-top:var(--sp-lg);font-size:var(--text-sm);color:var(--text-muted);">
+        Interested in partnering? <a href="mailto:lablinkinitiative@gmail.com?subject=Partnership Inquiry" style="color:var(--brand-700);font-weight:600;">Reach out to us.</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="page-cta">
+    <div class="wrap-sm">
+      <h2>Get Involved</h2>
+      <p>Whether you're a student, a potential partner organization, or someone who wants to support our mission — we'd love to hear from you.</p>
+      <div class="cta-btns">
+        <a href="/internships.html" class="btn btn-white">Find Internships</a>
+        <a href="/donate.html" class="btn btn-lime">Support Our Work</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <span>&copy; 2025 <a href="/">LabLink Initiative</a> &middot; 501(c)(3) Nonprofit</span>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="/">Home</a>
+      <a href="/internships.html">Internships</a>
+      <a href="/donate.html">Donate</a>
+      <a href="mailto:lablinkinitiative@gmail.com">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('site-header');
+  const menuBtn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  function openMenu() { menu.removeAttribute('hidden'); menu.offsetHeight; menu.classList.add('is-open'); header.setAttribute('data-menu-open',''); menuBtn.setAttribute('aria-expanded','true'); menuBtn.setAttribute('aria-label','Close navigation'); document.body.style.overflow='hidden'; }
+  function closeMenu() { menu.classList.remove('is-open'); header.removeAttribute('data-menu-open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.setAttribute('aria-label','Open navigation'); document.body.style.overflow=''; setTimeout(()=>{ if(!menu.classList.contains('is-open')) menu.setAttribute('hidden',''); },200); }
+  menuBtn.addEventListener('click', () => menu.classList.contains('is-open') ? closeMenu() : openMenu());
+  menu.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
+  window.matchMedia('(min-width:768px)').addEventListener('change', e => { if(e.matches && menu.classList.contains('is-open')) closeMenu(); });
+  document.addEventListener('keydown', e => { if(e.key==='Escape' && menu.classList.contains('is-open')) { closeMenu(); menuBtn.focus(); } });
+</script>
+</body>
+</html>

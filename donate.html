@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Our Mission — LabLink Initiative</title>
+  <meta name="description" content="Support LabLink Initiative, a 501(c)(3) nonprofit connecting college students with paid career experiences at DOE National Laboratories and federal agencies. Tax-deductible donation." />
+  <meta name="theme-color" content="#2E3A23" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <style>
+    @layer reset, tokens, base, layout, components, utilities;
+    @layer reset {
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { min-height: 100dvh; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+      img, picture, video, canvas, svg { display: block; max-width: 100%; }
+      input, button, textarea, select { font: inherit; }
+      p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    }
+    @layer tokens {
+      :root {
+        --brand-900: #2E3A23; --brand-700: #4A5F39; --brand-500: #6E8A53;
+        --brand-300: #A7BE8E; --brand-100: #DCE8CC;
+        --accent-lime: #A5C43A; --accent-lime-dark: #8AAF1E; --on-lime: #1D2A10;
+        --canvas: #FAF8F0; --surface: #F3F0E6; --surface-2: #E8E3D4; --border: #C9C2AE;
+        --text-strong: #111312; --text-default: #253021; --text-muted: #5F6A58; --white: #FFFFFF;
+        --text-xs: clamp(0.72rem, 2vw, 0.8rem); --text-sm: clamp(0.875rem, 2.5vw, 0.9375rem);
+        --text-base: clamp(1rem, 3vw, 1.0625rem); --text-lg: clamp(1.1rem, 3vw, 1.25rem);
+        --text-xl: clamp(1.25rem, 4vw, 1.5rem); --text-2xl: clamp(1.5rem, 5vw, 2.25rem);
+        --text-hero: clamp(2rem, 7vw, 3.25rem);
+        --sp-xs: clamp(0.5rem, 2vw, 0.75rem); --sp-sm: clamp(0.75rem, 3vw, 1rem);
+        --sp-md: clamp(1rem, 4vw, 1.5rem); --sp-lg: clamp(1.5rem, 5vw, 2.5rem);
+        --sp-xl: clamp(2rem, 6vw, 4rem); --sp-2xl: clamp(3rem, 8vw, 6rem);
+        --max-w: 1100px; --max-w-sm: 680px;
+        --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px; --radius-pill: 999px;
+        --shadow-sm: 0 1px 4px rgba(17,19,18,0.08); --shadow-md: 0 4px 16px rgba(17,19,18,0.10);
+        --ease: cubic-bezier(0.25,0.46,0.45,0.94); --t-fast: 120ms; --t-base: 200ms;
+      }
+    }
+    @layer base {
+      body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--canvas); color: var(--text-default); font-size: var(--text-base); }
+      h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; color: var(--text-strong); letter-spacing: -0.01em; }
+      a { color: inherit; text-decoration: none; }
+      :focus-visible { outline: 3px solid var(--accent-lime); outline-offset: 3px; border-radius: var(--radius-sm); }
+      :focus:not(:focus-visible) { outline: none; }
+      :target { scroll-margin-top: 72px; }
+    }
+    @layer layout {
+      .wrap { width: min(var(--max-w), 100% - 2rem); margin-inline: auto; }
+      .wrap-sm { width: min(var(--max-w-sm), 100% - 2rem); margin-inline: auto; }
+    }
+    @layer components {
+      /* Skip link */
+      .skip-link { position: absolute; top: -100%; left: 1rem; z-index: 9999; background: var(--brand-700); color: var(--white); padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 0 0 var(--radius-md) var(--radius-md); transition: top var(--t-fast) var(--ease); }
+      .skip-link:focus { top: 0; }
+
+      /* ── NAV ── */
+      .site-header { position: sticky; top: 0; z-index: 200; background: var(--brand-900); }
+      .nav-bar { display: flex; align-items: center; justify-content: space-between; height: 64px; padding-inline: 1.25rem; max-width: var(--max-w); margin: 0 auto; }
+      .nav-logo { font-weight: 700; font-size: 1rem; color: var(--white); letter-spacing: -0.02em; flex-shrink: 0; }
+      .nav-logo em { font-style: normal; color: var(--accent-lime); }
+      .nav-links { display: none; list-style: none; gap: 0.125rem; align-items: center; }
+      .nav-links a { display: flex; align-items: center; height: 40px; padding-inline: 0.875rem; color: var(--brand-300); font-size: 0.875rem; font-weight: 500; border-radius: var(--radius-sm); transition: color var(--t-fast), background var(--t-fast); white-space: nowrap; }
+      .nav-links a:hover, .nav-links a[aria-current] { color: var(--white); background: rgba(255,255,255,0.07); }
+      .nav-links .nav-cta { background: var(--accent-lime); color: var(--on-lime) !important; font-weight: 700; margin-left: 0.375rem; }
+      .nav-links .nav-cta:hover { background: var(--accent-lime-dark); }
+      .hamburger { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 48px; height: 48px; background: none; border: none; cursor: pointer; padding: 0; border-radius: var(--radius-sm); transition: background var(--t-fast); flex-shrink: 0; }
+      .hamburger:hover { background: rgba(255,255,255,0.08); }
+      .hamburger-bar { width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform var(--t-base) var(--ease), opacity var(--t-fast); }
+      .site-header[data-menu-open] .hamburger-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .site-header[data-menu-open] .hamburger-bar:nth-child(2) { opacity: 0; }
+      .site-header[data-menu-open] .hamburger-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .mobile-menu { position: fixed; inset: 64px 0 0 0; z-index: 190; background: var(--brand-900); display: flex; flex-direction: column; padding: 1.5rem 1.5rem 2rem; overflow-y: auto; transform: translateX(100%); transition: transform var(--t-base) var(--ease); visibility: hidden; }
+      .mobile-menu.is-open { transform: translateX(0); visibility: visible; }
+      .mobile-menu nav { display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: auto; }
+      .mobile-menu nav a { display: flex; align-items: center; height: 60px; padding-inline: 1rem; color: var(--brand-300); font-size: 1.125rem; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-sm); transition: color var(--t-fast), background var(--t-fast); }
+      .mobile-menu nav a:last-of-type { border-bottom: none; }
+      .mobile-menu nav a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+      .mobile-menu-cta { display: flex; align-items: center; justify-content: center; height: 56px; background: var(--accent-lime); color: var(--on-lime); font-weight: 700; font-size: 1rem; border-radius: var(--radius-md); margin-top: 1.5rem; }
+      @media (min-width: 768px) { .nav-links { display: flex; } .hamburger { display: none; } .mobile-menu { display: none; } }
+
+      /* Sticky mobile CTA */
+      .sticky-cta-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 180; background: var(--brand-900); border-top: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 1.25rem; padding-bottom: max(0.75rem, env(safe-area-inset-bottom)); display: flex; gap: 0.5rem; }
+      .sticky-cta-bar a { flex: 1; display: flex; align-items: center; justify-content: center; height: 48px; border-radius: var(--radius-md); font-weight: 700; font-size: 0.9rem; }
+      .scta-primary { background: var(--accent-lime); color: var(--on-lime); }
+      .scta-secondary { background: rgba(255,255,255,0.08); color: var(--white); border: 1px solid rgba(255,255,255,0.15); }
+      @media (min-width: 768px) { .sticky-cta-bar { display: none; } }
+      @media (max-width: 767px) { body { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); } }
+
+      /* Page hero */
+      .page-hero { background: linear-gradient(140deg, var(--brand-900) 0%, #3a5230 60%, var(--brand-700) 100%); color: var(--white); padding: var(--sp-xl) 1.25rem; text-align: center; }
+      .breadcrumb { font-size: var(--text-xs); color: var(--brand-300); margin-bottom: var(--sp-sm); }
+      .breadcrumb a { color: var(--brand-300); }
+      .breadcrumb a:hover { color: var(--white); }
+      .hero-badge { display: inline-flex; align-items: center; gap: 0.375rem; background: rgba(165,196,58,0.12); border: 1px solid rgba(165,196,58,0.3); color: var(--accent-lime); padding: 0.375rem 1rem; border-radius: var(--radius-pill); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--sp-md); }
+      .page-hero h1 { font-size: var(--text-hero); color: var(--white); margin-bottom: 0.75rem; }
+      .page-hero h1 em { color: var(--accent-lime); font-style: italic; }
+      .page-hero p { color: var(--brand-300); font-size: var(--text-lg); max-width: 580px; margin: 0 auto; line-height: 1.7; }
+
+      /* Photo strip */
+      .photo-strip { display: grid; grid-template-columns: 1fr; gap: 0; overflow: hidden; }
+      .photo-strip img { width: 100%; height: 200px; object-fit: cover; display: block; }
+      @media (min-width: 600px) { .photo-strip { grid-template-columns: repeat(3, 1fr); } .photo-strip img { height: 220px; } }
+
+      /* Section */
+      .section { padding: var(--sp-2xl) 1.25rem; }
+      @media (min-width: 768px) { .section { padding: var(--sp-2xl) 2rem; } }
+      .section-tag { display: inline-block; font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-500); margin-bottom: 0.5rem; }
+      .section-title { font-size: var(--text-2xl); font-weight: 700; margin-bottom: 0.875rem; }
+
+      /* Donate grid — single col mobile, 2-col desktop */
+      .donate-grid { display: grid; grid-template-columns: 1fr; gap: var(--sp-xl); max-width: var(--max-w); margin: 0 auto; padding: var(--sp-2xl) 1.25rem; }
+      @media (min-width: 900px) { .donate-grid { grid-template-columns: 1fr 1fr; padding: var(--sp-2xl) 2rem; } }
+
+      /* Impact items */
+      .impact-text { font-size: var(--text-base); color: var(--text-muted); line-height: 1.7; margin-bottom: var(--sp-lg); }
+      .impact-items { display: flex; flex-direction: column; gap: var(--sp-md); margin-bottom: var(--sp-lg); }
+      .impact-item { display: flex; gap: 0.875rem; align-items: flex-start; }
+      .impact-icon { font-size: 1.375rem; flex-shrink: 0; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: var(--surface); border-radius: var(--radius-md); }
+      .impact-body h4 { font-size: var(--text-base); font-weight: 700; color: var(--text-strong); margin-bottom: 0.2rem; font-family: 'Inter', sans-serif; }
+      .impact-body p { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.6; }
+      .tax-note { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--sp-md); font-size: var(--text-xs); color: var(--text-muted); line-height: 1.65; }
+
+      /* Donate card */
+      .donate-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--sp-lg); box-shadow: var(--shadow-md); }
+      .donate-card h3 { font-size: var(--text-xl); margin-bottom: 0.5rem; }
+      .donate-card > p { font-size: var(--text-sm); color: var(--text-muted); margin-bottom: var(--sp-lg); }
+      .amount-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.625rem; margin-bottom: var(--sp-sm); }
+      .amount-btn { background: var(--surface); border: 2px solid var(--border); border-radius: var(--radius-md); padding: 1rem; cursor: pointer; text-align: center; transition: border-color var(--t-fast), background var(--t-fast); min-height: 76px; }
+      .amount-btn:hover { border-color: var(--brand-500); }
+      .amount-btn.selected { border-color: var(--brand-700); background: rgba(74,95,57,0.07); }
+      .amount-main { font-family: 'Playfair Display', serif; font-size: var(--text-xl); font-weight: 700; color: var(--text-strong); }
+      .amount-sub { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.2rem; }
+      .custom-amount { margin-bottom: var(--sp-md); }
+      .custom-label { font-size: var(--text-xs); font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.375rem; display: block; }
+      .custom-input-wrap { display: flex; align-items: center; background: var(--canvas); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; height: 52px; }
+      .custom-prefix { padding: 0 0.875rem; font-size: var(--text-base); font-weight: 600; color: var(--text-muted); background: var(--surface); border-right: 1px solid var(--border); height: 100%; display: flex; align-items: center; }
+      .custom-input { flex: 1; padding: 0 0.875rem; border: none; background: transparent; font-size: var(--text-base); color: var(--text-default); outline: none; height: 100%; }
+      .frequency-row { display: flex; gap: 0.5rem; margin-bottom: var(--sp-lg); }
+      .freq-btn { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0; cursor: pointer; font-size: var(--text-sm); font-weight: 600; color: var(--text-muted); height: 52px; transition: all var(--t-fast); display: flex; align-items: center; justify-content: center; }
+      .freq-btn.selected { background: var(--brand-700); border-color: var(--brand-700); color: var(--white); }
+      .donate-methods { display: flex; flex-direction: column; gap: 0.75rem; }
+      .donate-method-btn { display: flex; align-items: center; justify-content: center; min-height: 56px; padding-inline: 1.5rem; border-radius: var(--radius-md); font-size: var(--text-base); font-weight: 700; transition: opacity var(--t-fast); border: none; cursor: pointer; }
+      .donate-method-btn:hover { opacity: 0.9; }
+      .donate-primary { background: var(--brand-700); color: var(--white); }
+      .donate-secondary { background: var(--surface); border: 2px solid var(--border); color: var(--text-default); font-size: var(--text-sm); }
+      .donate-note { font-size: var(--text-xs); color: var(--text-muted); text-align: center; margin-top: 0.75rem; line-height: 1.5; }
+
+      /* Other ways */
+      .other-ways { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: var(--sp-2xl) 1.25rem; }
+      @media (min-width: 768px) { .other-ways { padding: var(--sp-2xl) 2rem; } }
+      .ways-grid { display: grid; grid-template-columns: 1fr; gap: var(--sp-sm); margin-top: var(--sp-lg); }
+      @media (min-width: 600px) { .ways-grid { grid-template-columns: repeat(2, 1fr); } }
+      @media (min-width: 900px) { .ways-grid { grid-template-columns: repeat(3, 1fr); } }
+      .way-card { background: var(--canvas); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--sp-md); }
+      .way-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+      .way-card h3 { font-size: var(--text-base); font-weight: 700; color: var(--text-strong); margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; }
+      .way-card p { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.65; }
+      .way-card a { display: inline-flex; align-items: center; margin-top: 0.875rem; color: var(--brand-700); font-size: var(--text-sm); font-weight: 600; min-height: 44px; }
+      .way-card a:hover { text-decoration: underline; }
+
+      /* Footer */
+      .site-footer { background: var(--brand-900); color: var(--brand-300); padding: var(--sp-md) 1.25rem; font-size: var(--text-sm); }
+      .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+      @media (min-width: 600px) { .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+      .site-footer a { color: var(--brand-300); }
+      .site-footer a:hover { color: var(--white); }
+      .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header" role="banner" id="site-header">
+  <div class="nav-bar">
+    <a href="/" class="nav-logo">Lab<em>Link</em> Initiative</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/internships.html">Internships</a></li>
+      <li><a href="https://lablinkinitiative.substack.com" target="_blank" rel="noopener">Newsletter</a></li>
+      <li><a href="/donate.html" class="nav-cta" aria-current="page">Donate</a></li>
+    </ul>
+    <button class="hamburger" id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation">
+      <span class="hamburger-bar" aria-hidden="true"></span>
+      <span class="hamburger-bar" aria-hidden="true"></span>
+      <span class="hamburger-bar" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation" hidden>
+  <nav>
+    <a href="/about.html">About Us</a>
+    <a href="/internships.html">Find Internships</a>
+    <a href="https://lablinkinitiative.substack.com" target="_blank" rel="noopener">Newsletter</a>
+  </nav>
+  <a href="mailto:lablinkinitiative@gmail.com?subject=Donation" class="mobile-menu-cta">Donate Now →</a>
+</div>
+
+<div class="sticky-cta-bar" aria-hidden="true">
+  <a href="mailto:lablinkinitiative@gmail.com?subject=Donation%20—%20LabLink%20Initiative" class="scta-primary">Donate Now</a>
+  <a href="/internships.html" class="scta-secondary">Browse Internships</a>
+</div>
+
+<main id="main" tabindex="-1">
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="breadcrumb"><a href="/">Home</a> &rsaquo; Support Our Work</p>
+  <div class="hero-badge">Tax-Deductible · 501(c)(3) Nonprofit</div>
+  <h1>Help us open more <em>doors</em></h1>
+  <p>Every dollar you give goes toward connecting students who wouldn't otherwise know these opportunities exist with the internships, mentorship, and resources that change career trajectories.</p>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip" aria-hidden="true">
+  <img src="images/donate-initiative-01.jpg" alt="" loading="lazy" width="400" height="200" />
+  <img src="images/students-collaborating-outdoors.jpg" alt="" loading="lazy" width="400" height="200" />
+  <img src="images/donate-initiative-03.jpg" alt="" loading="lazy" width="400" height="200" />
+</div>
+
+<!-- DONATE GRID -->
+<div class="donate-grid">
+
+  <!-- IMPACT SIDE -->
+  <section aria-labelledby="impact-h2">
+    <span class="section-tag">Your Impact</span>
+    <h2 class="section-title" id="impact-h2">Where your donation goes</h2>
+    <p class="impact-text">LabLink Initiative has no seed funding and no operating budget. Every program we run, every consultation we offer, and every resource we produce is powered by people who believe in what we're building. Here's what your support directly funds:</p>
+
+    <div class="impact-items">
+      <div class="impact-item">
+        <div class="impact-icon" aria-hidden="true">🎓</div>
+        <div class="impact-body">
+          <h4>Student Consultations</h4>
+          <p>Free 1:1 advising sessions that walk students through national lab and federal internship applications — the process most advisors don't know.</p>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-icon" aria-hidden="true">📬</div>
+        <div class="impact-body">
+          <h4>The LinkBot Newsletter</h4>
+          <p>Monthly deep-tech publications reaching 5,000+ students with career pathways in quantum computing, clean energy, biotech, and more.</p>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-icon" aria-hidden="true">🔬</div>
+        <div class="impact-body">
+          <h4>CE-CDP Platform Development</h4>
+          <p>Hosting, development, and iteration on our AI-powered skill gap assessment and internship matching platform.</p>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-icon" aria-hidden="true">🏆</div>
+        <div class="impact-body">
+          <h4>Scholarships &amp; Grants</h4>
+          <p>Direct financial support to students who need it most — with goals to reach $50K+ in annual awards within 5 years.</p>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-icon" aria-hidden="true">🤝</div>
+        <div class="impact-body">
+          <h4>Events &amp; Workshops</h4>
+          <p>Virtual and in-person events that connect students directly with national lab professionals and federal program managers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tax-note">
+      <strong>Tax-deductible donation.</strong> LabLink Initiative is a registered 501(c)(3) nonprofit organization. Your contribution is tax-deductible to the extent allowed by law. EIN available upon request. Email <a href="mailto:lablinkinitiative@gmail.com" style="color:var(--brand-700);">lablinkinitiative@gmail.com</a> for a donation receipt.
+    </div>
+  </section>
+
+  <!-- DONATE CARD -->
+  <section aria-labelledby="donate-h3">
+    <div class="donate-card">
+      <h3 id="donate-h3">Make a Donation</h3>
+      <p>Choose an amount and a giving method. Every contribution, large or small, directly funds student programs.</p>
+
+      <div class="amount-grid" role="group" aria-label="Select donation amount">
+        <button class="amount-btn selected" onclick="selectAmount(this,25)" type="button" aria-pressed="true">
+          <div class="amount-main">$25</div>
+          <div class="amount-sub">One consultation funded</div>
+        </button>
+        <button class="amount-btn" onclick="selectAmount(this,50)" type="button">
+          <div class="amount-main">$50</div>
+          <div class="amount-sub">Workshop materials for a student</div>
+        </button>
+        <button class="amount-btn" onclick="selectAmount(this,100)" type="button">
+          <div class="amount-main">$100</div>
+          <div class="amount-sub">Newsletter issue production</div>
+        </button>
+        <button class="amount-btn" onclick="selectAmount(this,250)" type="button">
+          <div class="amount-main">$250</div>
+          <div class="amount-sub">Partial scholarship award</div>
+        </button>
+      </div>
+
+      <div class="custom-amount">
+        <label class="custom-label" for="custom-amount">Custom amount</label>
+        <div class="custom-input-wrap">
+          <span class="custom-prefix" aria-hidden="true">$</span>
+          <input type="number" id="custom-amount" class="custom-input" placeholder="Enter amount" min="1" oninput="clearAmountSelection()" aria-label="Custom donation amount in dollars" />
+        </div>
+      </div>
+
+      <div class="frequency-row" role="group" aria-label="Select giving frequency">
+        <button class="freq-btn selected" onclick="selectFreq(this,'once')" type="button" aria-pressed="true">One-time</button>
+        <button class="freq-btn" onclick="selectFreq(this,'monthly')" type="button">Monthly</button>
+        <button class="freq-btn" onclick="selectFreq(this,'annual')" type="button">Annual</button>
+      </div>
+
+      <div class="donate-methods">
+        <a href="mailto:lablinkinitiative@gmail.com?subject=Donation%20%E2%80%94%20LabLink%20Initiative&body=Hi%20LabLink%20team%2C%0D%0A%0D%0AI%27d%20like%20to%20make%20a%20donation%20to%20support%20LabLink%20Initiative%27s%20work.%0D%0A%0D%0AAmount%3A%20%24%0D%0AFrequency%3A%20One-time%20%2F%20Monthly%20%2F%20Annual%0D%0A%0D%0APlease%20send%20me%20payment%20instructions%20and%20a%20receipt.%0D%0A%0D%0AThank%20you%21" class="donate-method-btn donate-primary">Donate via Email (PayPal / Check)</a>
+        <a href="mailto:lablinkinitiative@gmail.com?subject=Corporate%20Sponsorship%20Inquiry" class="donate-method-btn donate-secondary">Corporate / Organizational Sponsorship</a>
+      </div>
+
+      <p class="donate-note">
+        We're setting up formal payment infrastructure. Email us at <strong>lablinkinitiative@gmail.com</strong> with your intended donation and we'll send payment instructions and a receipt. All donations acknowledged within 24–48 hours.
+      </p>
+    </div>
+  </section>
+
+</div><!-- /donate-grid -->
+
+<!-- OTHER WAYS -->
+<section class="other-ways" aria-labelledby="other-h2">
+  <div class="wrap">
+    <span class="section-tag">Other Ways to Help</span>
+    <h2 class="section-title" id="other-h2">Not just financial</h2>
+    <p style="font-size:var(--text-base);color:var(--text-muted);max-width:600px;line-height:1.7;">Money isn't the only way to support what we're building. Here are some other ways to make a real difference.</p>
+    <div class="ways-grid">
+      <div class="way-card">
+        <div class="way-icon" aria-hidden="true">🔗</div>
+        <h3>Spread the Word</h3>
+        <p>Know a college student who should hear about national lab internships? Forward them our newsletter, share our site, or mention us to an advisor or professor.</p>
+        <a href="https://lablinkinitiative.org" target="_blank" rel="noopener">Share lablinkinitiative.org</a>
+      </div>
+      <div class="way-card">
+        <div class="way-icon" aria-hidden="true">🤝</div>
+        <h3>Become a Mentor</h3>
+        <p>Have experience in STEM, national labs, federal agencies, or industry? Volunteer 1–2 hours per month for a 1:1 session with a student. The impact is direct and lasting.</p>
+        <a href="mailto:lablinkinitiative@gmail.com?subject=Mentorship%20Volunteer%20Interest">Express interest</a>
+      </div>
+      <div class="way-card">
+        <div class="way-icon" aria-hidden="true">🏢</div>
+        <h3>Corporate Sponsorship</h3>
+        <p>Organizations that share our mission can sponsor our programs, newsletter, scholarships, or events. Direct impact on the next generation of STEM talent.</p>
+        <a href="mailto:lablinkinitiative@gmail.com?subject=Corporate%20Sponsorship%20Inquiry">Get sponsorship details</a>
+      </div>
+      <div class="way-card">
+        <div class="way-icon" aria-hidden="true">📋</div>
+        <h3>Employer Matching</h3>
+        <p>Many employers match employee charitable contributions dollar-for-dollar. Check with your HR department — it can double your impact at no extra cost.</p>
+        <a href="mailto:lablinkinitiative@gmail.com?subject=Employer%20Matching%20Donation">Contact us to set it up</a>
+      </div>
+      <div class="way-card">
+        <div class="way-icon" aria-hidden="true">📝</div>
+        <h3>Grant Referrals</h3>
+        <p>Know of foundation or government grant opportunities that fit our mission? We'd love to hear about them. We're actively building our grant pipeline.</p>
+        <a href="mailto:lablinkinitiative@gmail.com?subject=Grant%20Referral">Share a lead</a>
+      </div>
+      <div class="way-card">
+        <div class="way-icon" aria-hidden="true">🎤</div>
+        <h3>Speaking &amp; Outreach</h3>
+        <p>Invite us to speak at your institution, organization, or event. We talk about national lab internships, the community college pathway, and emerging STEM careers.</p>
+        <a href="mailto:lablinkinitiative@gmail.com?subject=Speaking%20Invitation">Invite us to speak</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <span>&copy; 2025 <a href="/">LabLink Initiative</a> &middot; 501(c)(3) Nonprofit &middot; <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a></span>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/internships.html">Internships</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('site-header');
+const menuBtn = document.getElementById('menu-btn');
+const menu = document.getElementById('mobile-menu');
+function openMenu() { menu.removeAttribute('hidden'); menu.offsetHeight; menu.classList.add('is-open'); header.setAttribute('data-menu-open',''); menuBtn.setAttribute('aria-expanded','true'); menuBtn.setAttribute('aria-label','Close navigation'); document.body.style.overflow='hidden'; }
+function closeMenu() { menu.classList.remove('is-open'); header.removeAttribute('data-menu-open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.setAttribute('aria-label','Open navigation'); document.body.style.overflow=''; setTimeout(()=>{ if(!menu.classList.contains('is-open')) menu.setAttribute('hidden',''); },200); }
+menuBtn.addEventListener('click', () => menu.classList.contains('is-open') ? closeMenu() : openMenu());
+menu.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
+window.matchMedia('(min-width:768px)').addEventListener('change', e => { if(e.matches && menu.classList.contains('is-open')) closeMenu(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape' && menu.classList.contains('is-open')) { closeMenu(); menuBtn.focus(); } });
+
+let selectedAmount = 25;
+let selectedFreq = 'once';
+function selectAmount(el, val) {
+  document.querySelectorAll('.amount-btn').forEach(b => { b.classList.remove('selected'); b.removeAttribute('aria-pressed'); });
+  el.classList.add('selected'); el.setAttribute('aria-pressed','true');
+  document.getElementById('custom-amount').value = '';
+  selectedAmount = val;
+}
+function clearAmountSelection() {
+  document.querySelectorAll('.amount-btn').forEach(b => { b.classList.remove('selected'); b.removeAttribute('aria-pressed'); });
+  selectedAmount = null;
+}
+function selectFreq(el, val) {
+  document.querySelectorAll('.freq-btn').forEach(b => { b.classList.remove('selected'); b.removeAttribute('aria-pressed'); });
+  el.classList.add('selected'); el.setAttribute('aria-pressed','true');
+  selectedFreq = val;
+}
+</script>
+</body>
+</html>
