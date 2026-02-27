@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LabLink Initiative — Start Here. Go Anywhere.</title>
-  <meta name="description" content="LabLink Initiative is a 501(c)(3) nonprofit that connects college students with paid career experiences in STEM and Business — at National Laboratories, federal agencies, industry, and beyond. Free for students." />
+  <meta name="description" content="LabLink Initiative is a 501(c)(3) nonprofit that connects college students with paid career experiences — at National Laboratories, federal agencies, industry, and beyond. Free for students." />
   <meta property="og:title" content="LabLink Initiative — Start Here. Go Anywhere." />
-  <meta property="og:description" content="Free nonprofit connecting college students with real career experiences in STEM and Business. National Labs, federal agencies, industry, and more." />
+  <meta property="og:description" content="Free nonprofit connecting college students with real career experiences. National Labs, federal agencies, industry, and more." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lablinkinitiative.org" />
   <meta name="theme-color" content="#2E3A23" />
@@ -15,15 +15,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <style>
-    /* ═══════════════════════════════════════════════
-       LLI v2 — Editorial, Mobile-Native
-       Design principles:
-       - Typography-first, not card-first
-       - Institutional, not SaaS
-       - Mobile default, desktop enhancement
-       - Accessibility: WCAG 2.1 AA
-    ═══════════════════════════════════════════════ */
-
     @layer reset, tokens, base, layout, components, utils;
 
     @layer reset {
@@ -45,7 +36,6 @@
 
     @layer tokens {
       :root {
-        /* ── Primitive palette ── */
         --moss-900: #1F2A17;
         --moss-800: #2E3A23;
         --moss-700: #3D4E2F;
@@ -63,7 +53,6 @@
         --stone: #F5F1E8;
         --parchment: #FAF8F2;
 
-        /* ── Semantic tokens ── */
         --bg:           var(--parchment);
         --bg-alt:       var(--stone);
         --bg-dark:      var(--moss-800);
@@ -78,11 +67,9 @@
         --color-heading-dark:  #F5F0E8;
         --color-body-dark:     var(--moss-200);
 
-        /* ── Typography ── */
         --font-editorial: 'DM Serif Display', Georgia, 'Times New Roman', serif;
         --font-ui:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-        /* Fluid type scale */
         --t-xs:      clamp(0.72rem, 1.8vw, 0.8rem);
         --t-sm:      clamp(0.875rem, 2vw, 0.9375rem);
         --t-base:    clamp(1rem, 2.5vw, 1.0625rem);
@@ -93,7 +80,6 @@
         --t-hero:    clamp(2.5rem, 9vw, 5rem);
         --t-display: clamp(3rem, 11vw, 6rem);
 
-        /* Fluid spacing */
         --sp-1:  clamp(0.25rem, 1vw, 0.375rem);
         --sp-2:  clamp(0.5rem,  1.5vw, 0.75rem);
         --sp-3:  clamp(0.75rem, 2vw, 1rem);
@@ -103,22 +89,19 @@
         --sp-12: clamp(3rem,    7vw, 5rem);
         --sp-16: clamp(4rem,    9vw, 7rem);
 
-        /* Layout */
         --w-content: 1100px;
         --w-text:    680px;
         --w-narrow:  520px;
 
-        /* Borders — intentionally less rounded than SaaS */
-        --r-sm:   4px;
-        --r-md:   8px;
-        --r-lg:   12px;
+        /* Sharp corners — less SaaS */
+        --r-sm:   2px;
+        --r-md:   3px;
+        --r-lg:   4px;
         --r-pill: 999px;
 
-        /* Shadows */
         --shadow-sm: 0 1px 3px rgba(26,29,24,0.06), 0 1px 2px rgba(26,29,24,0.04);
         --shadow-md: 0 4px 12px rgba(26,29,24,0.08), 0 2px 4px rgba(26,29,24,0.05);
 
-        /* Motion */
         --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
         --dur-fast: 120ms;
         --dur-base: 200ms;
@@ -152,7 +135,7 @@
         background: var(--moss-800);
         color: #fff;
         padding: 0.5rem 1rem;
-        border-radius: 0 0 var(--r-sm) var(--r-sm);
+        border-radius: 0;
         font-size: var(--t-sm);
         font-weight: 600;
         z-index: 9999;
@@ -162,7 +145,6 @@
     }
 
     @layer layout {
-      /* ── Wrap utilities ── */
       .wrap    { max-width: var(--w-content); margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2rem); }
       .wrap-text { max-width: var(--w-text);   margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2rem); }
       .wrap-narrow { max-width: var(--w-narrow); margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2rem); }
@@ -170,9 +152,7 @@
 
     @layer components {
 
-      /* ─────────────────────────────────────
-         NAVIGATION
-      ───────────────────────────────────── */
+      /* ── NAVIGATION ── */
       .site-nav {
         position: sticky;
         top: 0;
@@ -251,7 +231,7 @@
         border: none;
         cursor: pointer;
         padding: 10px;
-        border-radius: var(--r-sm);
+        border-radius: 0;
         transition: background var(--dur-fast);
       }
       @media (min-width: 768px) { .hamburger { display: none; } }
@@ -261,7 +241,7 @@
         width: 100%;
         height: 2px;
         background: var(--fg);
-        border-radius: 2px;
+        border-radius: 0;
         transition: transform var(--dur-base) var(--ease), opacity var(--dur-fast);
       }
       .hamburger[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -301,18 +281,16 @@
         display: flex !important;
         align-items: center;
         justify-content: center;
-        background: var(--lime) !important;
-        color: var(--lime-text) !important;
-        border-radius: var(--r-sm);
+        background: var(--moss-800) !important;
+        color: #fff !important;
+        border-radius: 0 !important;
         font-weight: 700 !important;
         font-size: var(--t-base) !important;
         min-height: 54px !important;
         border-bottom: none !important;
       }
 
-      /* ─────────────────────────────────────
-         STICKY MOBILE CTA
-      ───────────────────────────────────── */
+      /* ── STICKY MOBILE CTA ── */
       .sticky-bar {
         position: fixed;
         bottom: 0;
@@ -334,29 +312,28 @@
         align-items: center;
         justify-content: center;
         min-height: 48px;
-        border-radius: var(--r-sm);
+        border-radius: 0;
         font-weight: 700;
         font-size: var(--t-sm);
         text-decoration: none;
       }
       .sticky-primary {
-        background: var(--lime);
-        color: var(--lime-text);
-      }
-      .sticky-secondary {
         background: var(--moss-800);
         color: #fff;
       }
+      .sticky-secondary {
+        background: transparent;
+        color: var(--moss-800);
+        border: 1.5px solid var(--moss-800);
+      }
 
-      /* ─────────────────────────────────────
-         BUTTONS
-      ───────────────────────────────────── */
+      /* ── BUTTONS ── */
       .btn {
         display: inline-flex;
         align-items: center;
         gap: 0.4rem;
         padding: 0.875rem 1.75rem;
-        border-radius: var(--r-sm);
+        border-radius: 0;
         font-family: var(--font-ui);
         font-weight: 700;
         font-size: var(--t-sm);
@@ -365,18 +342,17 @@
         text-decoration: none;
         white-space: nowrap;
         min-height: 52px;
-        transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast), transform var(--dur-fast);
+        transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
       }
-      .btn:active { transform: scale(0.98); }
 
       .btn-primary {
-        background: var(--lime);
-        color: var(--lime-text);
-        border-color: var(--lime);
+        background: var(--moss-800);
+        color: #fff;
+        border-color: var(--moss-800);
       }
       .btn-primary:hover {
-        background: var(--lime-dark);
-        border-color: var(--lime-dark);
+        background: var(--moss-900);
+        border-color: var(--moss-900);
       }
 
       .btn-dark {
@@ -396,7 +372,7 @@
         background: rgba(255,255,255,0.08);
       }
 
-      /* Arrow text link — not a button, editorial */
+      /* Arrow text link */
       .arrow-link {
         display: inline-flex;
         align-items: center;
@@ -411,9 +387,7 @@
       .arrow-link:hover { color: var(--moss-900); gap: 0.6rem; }
       .arrow-link::after { content: '→'; }
 
-      /* ─────────────────────────────────────
-         HERO — editorial, full-bleed image
-      ───────────────────────────────────── */
+      /* ── HERO ── */
       .hero {
         position: relative;
         background: var(--moss-900);
@@ -435,7 +409,6 @@
         opacity: 0.45;
       }
 
-      /* Dark gradient overlay — editorial style */
       .hero::after {
         content: '';
         position: absolute;
@@ -454,7 +427,6 @@
         padding-inline: clamp(1.25rem, 5vw, 2rem);
       }
 
-      /* Eyebrow label — editorial convention */
       .hero-eyebrow {
         display: inline-flex;
         align-items: center;
@@ -507,88 +479,7 @@
         .hero-ctas { display: flex; }
       }
 
-      /* ─────────────────────────────────────
-         SCOPE BAR — Who we serve
-      ───────────────────────────────────── */
-      .scope-bar {
-        background: var(--moss-700);
-        color: #fff;
-        padding: var(--sp-3) clamp(1.25rem, 5vw, 2rem);
-        font-size: var(--t-sm);
-      }
-      .scope-bar-inner {
-        max-width: var(--w-content);
-        margin-inline: auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem var(--sp-4);
-        align-items: center;
-      }
-      .scope-label {
-        font-weight: 600;
-        color: var(--moss-100);
-        flex-shrink: 0;
-      }
-      .scope-chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-      .chip {
-        background: rgba(255,255,255,0.1);
-        border: 1px solid rgba(255,255,255,0.15);
-        color: var(--moss-100);
-        padding: 0.2rem 0.75rem;
-        border-radius: var(--r-sm);
-        font-size: var(--t-xs);
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        white-space: nowrap;
-      }
-
-      /* ─────────────────────────────────────
-         STATS — editorial scale
-      ───────────────────────────────────── */
-      .stats {
-        background: var(--bg-alt);
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-        padding: var(--sp-8) clamp(1.25rem, 5vw, 2rem);
-      }
-      .stats-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--sp-6) var(--sp-4);
-        max-width: var(--w-content);
-        margin-inline: auto;
-      }
-      @media (min-width: 600px) {
-        .stats-grid { grid-template-columns: repeat(4, 1fr); }
-      }
-      .stat {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-      }
-      .stat-number {
-        font-family: var(--font-editorial);
-        font-size: clamp(2.25rem, 7vw, 3.5rem);
-        line-height: 1;
-        letter-spacing: -0.03em;
-        color: var(--moss-800);
-      }
-      .stat-label {
-        font-size: var(--t-xs);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--fg-faint);
-      }
-
-      /* ─────────────────────────────────────
-         MISSION SECTION — editorial pull quote
-      ───────────────────────────────────── */
+      /* ── MISSION ── */
       .mission {
         padding: var(--sp-16) clamp(1.25rem, 5vw, 2rem);
         background: var(--bg);
@@ -622,6 +513,31 @@
         color: var(--fg);
         line-height: 1.15;
       }
+      /* Inline stats in mission */
+      .mission-stats {
+        margin-top: var(--sp-6);
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-3);
+        border-top: 1px solid var(--border);
+        padding-top: var(--sp-6);
+      }
+      .mission-stat {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+      }
+      .mission-stat-num {
+        font-family: var(--font-editorial);
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+        letter-spacing: -0.03em;
+        color: var(--moss-800);
+        line-height: 1;
+      }
+      .mission-stat-label {
+        font-size: var(--t-sm);
+        color: var(--fg-muted);
+      }
       .mission-right {
         display: flex;
         flex-direction: column;
@@ -634,7 +550,6 @@
       }
       .mission-right strong { color: var(--fg); font-weight: 600; }
 
-      /* Pull quote */
       .pull-quote {
         border-left: 3px solid var(--lime);
         padding-left: var(--sp-4);
@@ -648,9 +563,7 @@
         line-height: 1.45;
       }
 
-      /* ─────────────────────────────────────
-         WHERE WE PLACE — destination strip
-      ───────────────────────────────────── */
+      /* ── DESTINATIONS ── */
       .destinations {
         background: var(--bg-dark);
         color: #fff;
@@ -760,29 +673,29 @@
         line-height: 1.65;
       }
 
-      /* ─────────────────────────────────────
-         PROGRAMS — asymmetric, not card grid
-      ───────────────────────────────────── */
+      /* ── PROGRAMS — editorial index, no cards ── */
       .programs {
         padding: var(--sp-16) clamp(1.25rem, 5vw, 2rem);
         background: var(--bg-alt);
       }
-      .programs-header {
+      .programs-inner {
         max-width: var(--w-content);
         margin-inline: auto;
+      }
+      .programs-head {
         margin-bottom: var(--sp-8);
         display: flex;
         flex-direction: column;
-        gap: var(--sp-3);
+        gap: var(--sp-2);
       }
       @media (min-width: 768px) {
-        .programs-header {
+        .programs-head {
           flex-direction: row;
           align-items: flex-end;
           justify-content: space-between;
         }
       }
-      .programs-header-left .section-label {
+      .programs-head-left .section-label {
         font-size: var(--t-xs);
         font-weight: 700;
         text-transform: uppercase;
@@ -790,102 +703,67 @@
         color: var(--moss-600);
         margin-bottom: var(--sp-2);
       }
-      .programs-header-left h2 {
+      .programs-head-left h2 {
         font-family: var(--font-editorial);
         font-size: var(--t-3xl);
         font-weight: 400;
         letter-spacing: -0.025em;
         color: var(--fg);
         line-height: 1.15;
-        max-width: 18ch;
       }
 
-      /* Scroll container for mobile */
-      .programs-scroll {
-        max-width: var(--w-content);
-        margin-inline: auto;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-        scroll-padding-left: clamp(1.25rem, 5vw, 2rem);
-        padding-bottom: var(--sp-2);
-        scrollbar-width: thin;
-        scrollbar-color: var(--border) transparent;
-      }
-      .programs-scroll::-webkit-scrollbar { height: 4px; }
-      .programs-scroll::-webkit-scrollbar-track { background: transparent; }
-      .programs-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-      .programs-list {
-        display: flex;
-        gap: var(--sp-3);
-        padding-inline: 0;
-        width: max-content;
-      }
-      @media (min-width: 768px) {
-        .programs-scroll { overflow-x: visible; }
-        .programs-list {
-          display: flex;
-          flex-direction: column;
-          width: auto;
-          gap: 0;
-        }
-      }
-
-      .program {
-        scroll-snap-align: start;
+      /* Index table */
+      .programs-index {
+        list-style: none;
         border-top: 1px solid var(--border);
-        padding: var(--sp-5) 0;
-        width: 260px;
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--sp-2);
+      }
+      .programs-index li {
+        border-bottom: 1px solid var(--border);
+      }
+      .programs-index a {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.25rem 0;
+        padding: 1.25rem 0;
+        text-decoration: none;
+        color: inherit;
+        transition: background var(--dur-fast);
       }
       @media (min-width: 768px) {
-        .program {
-          width: auto;
-          border-top: 1px solid var(--border);
-          flex-direction: row;
+        .programs-index a {
+          grid-template-columns: 1.4fr 2fr auto;
           align-items: baseline;
-          gap: 2rem;
-          padding: var(--sp-4) 0;
+          gap: 0 2rem;
+          padding: 1.125rem 0;
         }
-        .programs-list .program:last-child { border-bottom: 1px solid var(--border); }
-        .program-num { font-size: 1rem; min-width: 2.5rem; }
-        .program h3 { min-width: 220px; }
-        .program p { font-size: var(--t-sm); }
-        .program .arrow-link { white-space: nowrap; margin-left: auto; }
       }
-
-      .program-num {
+      .prog-name {
         font-family: var(--font-editorial);
-        font-size: var(--t-lg);
-        line-height: 1;
-        letter-spacing: -0.02em;
-        color: var(--moss-200);
-        font-weight: 400;
-        flex-shrink: 0;
-      }
-      .program h3 {
-        font-family: var(--font-editorial);
-        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-        font-weight: 400;
+        font-size: clamp(1.1rem, 2.5vw, 1.3rem);
         color: var(--fg);
         letter-spacing: -0.01em;
-        line-height: 1.3;
-        flex-shrink: 0;
+        line-height: 1.25;
       }
-      .program p {
+      .prog-desc {
         font-size: var(--t-sm);
         color: var(--fg-muted);
-        line-height: 1.65;
-        flex: 1;
+        line-height: 1.55;
       }
+      .prog-arrow {
+        font-size: var(--t-sm);
+        font-weight: 600;
+        color: var(--fg-faint);
+        white-space: nowrap;
+        display: none;
+        transition: color var(--dur-fast), gap var(--dur-fast);
+      }
+      @media (min-width: 768px) {
+        .prog-arrow { display: block; }
+      }
+      .programs-index a:hover .prog-name { color: var(--moss-700); }
+      .programs-index a:hover .prog-arrow { color: var(--moss-700); }
 
-      /* ─────────────────────────────────────
-         PHOTO FEATURE — full-width
-      ───────────────────────────────────── */
+      /* ── PHOTO FEATURE ── */
       .photo-feature {
         position: relative;
         overflow: hidden;
@@ -933,176 +811,110 @@
         margin-bottom: var(--sp-4);
       }
 
-      /* ─────────────────────────────────────
-         HOW IT WORKS — numbered steps
-      ───────────────────────────────────── */
-      .how {
+      /* ── EDITORIAL STATEMENT — replaces "How it Works" ── */
+      .statement {
         padding: var(--sp-16) clamp(1.25rem, 5vw, 2rem);
         background: var(--bg);
       }
-      .how-inner {
-        max-width: var(--w-content);
-        margin-inline: auto;
-      }
-      .how-header {
-        text-align: center;
-        max-width: var(--w-text);
-        margin-inline: auto;
-        margin-bottom: var(--sp-12);
-      }
-      .how-header .section-label {
-        font-size: var(--t-xs);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--moss-600);
-        display: block;
-        margin-bottom: var(--sp-2);
-      }
-      .how-header h2 {
-        font-family: var(--font-editorial);
-        font-size: var(--t-3xl);
-        font-weight: 400;
-        letter-spacing: -0.025em;
-        color: var(--fg);
-      }
-      .steps {
-        display: grid;
-        gap: 0;
-        border: 1px solid var(--border);
-        border-radius: var(--r-md);
-        overflow: hidden;
-      }
-      @media (min-width: 768px) {
-        .steps { grid-template-columns: repeat(4, 1fr); }
-      }
-      .step {
-        padding: var(--sp-6) var(--sp-4);
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-        gap: var(--sp-3);
-        background: var(--bg);
-        position: relative;
-      }
-      @media (min-width: 768px) {
-        .step {
-          border-right: 1px solid var(--border);
-          border-bottom: none;
-        }
-        .step:last-child { border-right: none; }
-      }
-      .step:last-child { border-bottom: none; }
-      .step-number {
-        font-family: var(--font-editorial);
-        font-size: clamp(2.5rem, 7vw, 4rem);
-        color: var(--moss-100);
-        line-height: 1;
-        letter-spacing: -0.04em;
-        font-weight: 400;
-      }
-      .step h3 {
-        font-family: var(--font-ui);
-        font-size: var(--t-base);
-        font-weight: 700;
-        color: var(--fg);
-        letter-spacing: 0;
-      }
-      .step p {
-        font-size: var(--t-sm);
-        color: var(--fg-muted);
-        line-height: 1.65;
-      }
-
-      /* ─────────────────────────────────────
-         PARTNERS
-      ───────────────────────────────────── */
-      .partners {
-        padding: var(--sp-12) clamp(1.25rem, 5vw, 2rem);
-        background: var(--bg-alt);
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-        text-align: center;
-      }
-      .partners-label {
-        font-size: var(--t-xs);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--fg-faint);
-        margin-bottom: var(--sp-6);
-      }
-      .partners-scroll {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-      }
-      .partners-scroll::-webkit-scrollbar { display: none; }
-      .partners-track {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        gap: clamp(1.5rem, 4vw, 3rem);
-        padding-inline: 0;
-        min-width: max-content;
-        margin-inline: auto;
-      }
-      @media (min-width: 768px) {
-        .partners-track {
-          justify-content: center;
-          min-width: 0;
-          flex-wrap: wrap;
-        }
-      }
-      .partner-logo {
-        opacity: 0.45;
-        transition: opacity var(--dur-fast);
-        flex-shrink: 0;
-      }
-      .partner-logo:hover { opacity: 1; }
-      .partner-logo img {
-        height: 30px;
-        width: auto;
-        max-width: 100px;
-        object-fit: contain;
-        filter: grayscale(40%);
-      }
-      .partner-logo:hover img { filter: none; }
-      .partner-tag {
-        font-size: var(--t-xs);
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        color: var(--fg-muted);
-        border: 1px solid var(--border);
-        padding: 0.25rem 0.75rem;
-        border-radius: var(--r-sm);
-        white-space: nowrap;
-        opacity: 0.6;
-        transition: opacity var(--dur-fast);
-      }
-      .partner-tag:hover { opacity: 1; }
-
-      /* ─────────────────────────────────────
-         PARTNER CTA — dark band
-      ───────────────────────────────────── */
-      .partner-cta {
-        background: var(--bg-darkest);
-        color: #fff;
-        padding: var(--sp-16) clamp(1.25rem, 5vw, 2rem);
-      }
-      .partner-cta-inner {
+      .statement-inner {
         max-width: var(--w-content);
         margin-inline: auto;
         display: grid;
         gap: var(--sp-8);
       }
       @media (min-width: 768px) {
-        .partner-cta-inner {
-          grid-template-columns: 1.4fr 1fr;
-          align-items: center;
+        .statement-inner {
+          grid-template-columns: 1fr 1.6fr;
+          align-items: start;
+          gap: var(--sp-12);
         }
       }
-      .partner-cta-left .label {
+      .statement-left {
+        border-top: 3px solid var(--lime);
+        padding-top: var(--sp-4);
+      }
+      .statement-left h2 {
+        font-family: var(--font-editorial);
+        font-size: var(--t-3xl);
+        font-weight: 400;
+        letter-spacing: -0.025em;
+        line-height: 1.15;
+        color: var(--fg);
+      }
+      .statement-right {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-4);
+        padding-top: var(--sp-6);
+      }
+      @media (min-width: 768px) {
+        .statement-right {
+          padding-top: 0;
+          border-top: 1px solid var(--border);
+          padding-top: var(--sp-4);
+        }
+      }
+      .statement-right p {
+        font-size: var(--t-lg);
+        color: var(--fg-muted);
+        line-height: 1.75;
+      }
+
+      /* ── AFFILIATES — plain text, no logos ── */
+      .affiliates {
+        padding: var(--sp-12) clamp(1.25rem, 5vw, 2rem);
+        background: var(--bg-alt);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .affiliates-inner {
+        max-width: var(--w-content);
+        margin-inline: auto;
+      }
+      .affiliates-label {
+        font-size: var(--t-xs);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--fg-faint);
+        margin-bottom: var(--sp-4);
+      }
+      .affiliates-names {
+        font-size: var(--t-base);
+        color: var(--fg-muted);
+        line-height: 2.2;
+        max-width: 72ch;
+      }
+      .affiliates-names span {
+        display: inline-block;
+        margin-right: 0.25rem;
+      }
+      .affiliates-names .sep {
+        color: var(--border);
+        margin: 0 0.25rem;
+        user-select: none;
+      }
+
+      /* ── PARTNER CTA — simple, no tier cards ── */
+      .org-cta {
+        background: var(--moss-900);
+        color: #fff;
+        padding: var(--sp-16) clamp(1.25rem, 5vw, 2rem);
+      }
+      .org-cta-inner {
+        max-width: var(--w-content);
+        margin-inline: auto;
+        display: grid;
+        gap: var(--sp-8);
+      }
+      @media (min-width: 768px) {
+        .org-cta-inner {
+          grid-template-columns: 1fr 1fr;
+          align-items: start;
+          gap: var(--sp-12);
+        }
+      }
+      .org-cta-label {
         font-size: var(--t-xs);
         font-weight: 700;
         text-transform: uppercase;
@@ -1113,65 +925,98 @@
         gap: 0.5rem;
         margin-bottom: var(--sp-3);
       }
-      .partner-cta-left .label::before {
+      .org-cta-label::before {
         content: '';
         display: block;
         width: 24px;
         height: 2px;
         background: var(--lime);
       }
-      .partner-cta-left h2 {
+      .org-cta-left h2 {
         font-family: var(--font-editorial);
         font-size: var(--t-3xl);
         color: var(--color-heading-dark);
         font-weight: 400;
         letter-spacing: -0.025em;
-        max-width: 22ch;
         line-height: 1.15;
         margin-bottom: var(--sp-4);
+        max-width: 20ch;
       }
-      .partner-cta-left p {
+      .org-cta-left p {
         font-size: var(--t-lg);
         color: var(--moss-200);
         line-height: 1.7;
-        max-width: 52ch;
+        max-width: 46ch;
+        margin-bottom: var(--sp-6);
       }
-      .partner-cta-right {
+      .org-cta-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: var(--t-base);
+        font-weight: 600;
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        padding-bottom: 2px;
+        transition: border-color var(--dur-fast), color var(--dur-fast);
+      }
+      .org-cta-link:hover {
+        color: var(--moss-100);
+        border-color: rgba(255,255,255,0.7);
+      }
+      .org-cta-link::after { content: ' →'; }
+      /* Right side: who we work with */
+      .org-cta-right {
+        padding-top: var(--sp-4);
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      @media (min-width: 768px) {
+        .org-cta-right {
+          border-top: none;
+          border-left: 1px solid rgba(255,255,255,0.1);
+          padding-top: 0;
+          padding-left: var(--sp-8);
+        }
+      }
+      .org-cta-right h3 {
+        font-family: var(--font-ui);
+        font-size: var(--t-xs);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(255,255,255,0.4);
+        margin-bottom: var(--sp-4);
+      }
+      .org-cta-who {
+        list-style: none;
         display: flex;
         flex-direction: column;
-        gap: var(--sp-3);
+        gap: var(--sp-4);
       }
-      .cta-card {
-        border-top: 1px solid rgba(255,255,255,0.12);
-        padding: var(--sp-4) 0;
-        display: flex;
-        align-items: flex-start;
-        gap: var(--sp-3);
+      .org-cta-who li {
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding-bottom: var(--sp-4);
       }
-      .cta-card:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
-      .cta-card-text h3 {
+      .org-cta-who li:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .org-cta-who h4 {
         font-family: var(--font-editorial);
         font-size: clamp(1rem, 2vw, 1.15rem);
         font-weight: 400;
         color: var(--color-heading-dark);
         letter-spacing: -0.01em;
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.3rem;
       }
-      .cta-card-text p {
+      .org-cta-who p {
         font-size: var(--t-xs);
         color: var(--moss-200);
         line-height: 1.6;
       }
-      .partner-cta-btns {
-        margin-top: var(--sp-4);
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-      }
 
-      /* ─────────────────────────────────────
-         NEWSLETTER
-      ───────────────────────────────────── */
+      /* ── NEWSLETTER ── */
       .newsletter {
         background: var(--moss-700);
         color: #fff;
@@ -1220,7 +1065,7 @@
         padding: 0 1rem;
         background: rgba(255,255,255,0.08);
         border: 1.5px solid rgba(255,255,255,0.2);
-        border-radius: var(--r-sm);
+        border-radius: 0;
         color: #fff;
         font-size: var(--t-sm);
         transition: border-color var(--dur-fast);
@@ -1239,9 +1084,7 @@
         color: rgba(167,190,142,0.7);
       }
 
-      /* ─────────────────────────────────────
-         FOOTER
-      ───────────────────────────────────── */
+      /* ── FOOTER ── */
       footer {
         background: var(--moss-900);
         color: var(--moss-200);
@@ -1288,7 +1131,7 @@
         color: var(--lime);
         border: 1px solid rgba(154,184,46,0.25);
         padding: 0.25rem 0.75rem;
-        border-radius: var(--r-sm);
+        border-radius: 0;
       }
       .footer-col h4 {
         font-family: var(--font-ui);
@@ -1316,7 +1159,6 @@
       }
       .footer-links a:hover { color: #fff; }
 
-      /* Mobile: accordion footer cols */
       @media (max-width: 899px) {
         .footer-col { border-top: 1px solid rgba(255,255,255,0.07); }
         .footer-col h4 {
@@ -1335,9 +1177,7 @@
           color: var(--moss-200);
           transition: transform var(--dur-base);
         }
-        .footer-col.is-open h4::after {
-          transform: rotate(45deg);
-        }
+        .footer-col.is-open h4::after { transform: rotate(45deg); }
         .footer-links {
           overflow: hidden;
           max-height: 0;
@@ -1382,7 +1222,6 @@
         white-space: nowrap;
         border-width: 0;
       }
-      /* Padding for sticky mobile bar */
       @media (max-width: 767px) {
         main { padding-bottom: clamp(72px, 15vw, 88px); }
       }
@@ -1396,44 +1235,37 @@
   <!-- NAVIGATION -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="LabLink Initiative home">
-        Lab<em>Link</em> Initiative
-      </a>
+      <a href="/" class="nav-logo" aria-label="LabLink Initiative home">Lab<em>Link</em> Initiative</a>
       <ul class="nav-links" role="list">
-        <li><a href="/about.html">About</a></li>
         <li><a href="/internships.html">Internships</a></li>
         <li><a href="/newsletter.html">Newsletter</a></li>
-        <li><a href="/donate.html" class="nav-cta">Support Us</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/internships.html" class="nav-cta">Explore Opportunities</a></li>
       </ul>
-      <button
-        class="hamburger"
-        id="menu-btn"
-        aria-expanded="false"
-        aria-controls="mobile-nav"
-        aria-label="Open navigation"
-      >
-        <span class="bar" aria-hidden="true"></span>
-        <span class="bar" aria-hidden="true"></span>
-        <span class="bar" aria-hidden="true"></span>
+      <button class="hamburger" id="menu-btn" aria-expanded="false" aria-label="Open navigation" aria-controls="mobile-nav">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
     </div>
   </nav>
 
   <!-- MOBILE NAVIGATION -->
-  <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation" aria-modal="true">
-    <a href="/about.html">About Us</a>
-    <a href="/internships.html">Find Internships</a>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
+    <a href="/internships.html">Internships</a>
     <a href="/newsletter.html">Newsletter</a>
-    <a href="/donate.html" class="mobile-nav-cta">Support Our Mission →</a>
-  </div>
+    <a href="/about.html">About</a>
+    <a href="/donate.html">Support Us</a>
+    <a href="/internships.html" class="mobile-nav-cta">Explore Opportunities</a>
+  </nav>
 
   <!-- STICKY MOBILE CTA -->
   <div class="sticky-bar" aria-hidden="true">
-    <a href="/internships.html" class="sticky-primary">Explore Internships</a>
-    <a href="/about.html" class="sticky-secondary">About</a>
+    <a href="/internships.html" class="sticky-primary">Find Opportunities</a>
+    <a href="/about.html" class="sticky-secondary">About Us</a>
   </div>
 
-  <main id="main" tabindex="-1">
+  <main id="main">
 
     <!-- ═══ HERO ═══ -->
     <section class="hero" aria-labelledby="hero-h1">
@@ -1457,7 +1289,7 @@
           LabLink Initiative connects college students with real, paid career experiences — at National Laboratories, federal agencies, industry partners, and beyond. Wherever you want to go, we help you get there.
         </p>
         <div class="hero-ctas">
-          <a href="/internships.html" class="btn btn-primary">
+          <a href="/internships.html" class="btn btn-ghost-light">
             Explore Opportunities
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
@@ -1465,42 +1297,6 @@
         </div>
       </div>
     </section>
-
-    <!-- SCOPE BAR -->
-    <div class="scope-bar" role="complementary">
-      <div class="scope-bar-inner">
-        <span class="scope-label">We place students at:</span>
-        <div class="scope-chips">
-          <span class="chip">DOE National Labs</span>
-          <span class="chip">Federal Agencies</span>
-          <span class="chip">Industry</span>
-          <span class="chip">Academia</span>
-          <span class="chip">STEM + Business</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ═══ STATS ═══ -->
-    <div class="stats" aria-label="Program impact">
-      <div class="stats-grid">
-        <div class="stat">
-          <span class="stat-number">5K+</span>
-          <span class="stat-label">Newsletter Subscribers</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">25+</span>
-          <span class="stat-label">Partner Organizations</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">17</span>
-          <span class="stat-label">DOE National Labs</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">Free for Students</span>
-        </div>
-      </div>
-    </div>
 
     <!-- ═══ MISSION ═══ -->
     <section class="mission" aria-labelledby="mission-h2">
@@ -1510,6 +1306,20 @@
           <h2 id="mission-h2">
             Bridging the gap between campus and career.
           </h2>
+          <div class="mission-stats" aria-label="Program impact">
+            <div class="mission-stat">
+              <span class="mission-stat-num">5K+</span>
+              <span class="mission-stat-label">newsletter subscribers</span>
+            </div>
+            <div class="mission-stat">
+              <span class="mission-stat-num">25+</span>
+              <span class="mission-stat-label">partner organizations</span>
+            </div>
+            <div class="mission-stat">
+              <span class="mission-stat-num">100%</span>
+              <span class="mission-stat-label">free for students</span>
+            </div>
+          </div>
         </div>
         <div class="mission-right">
           <p>
@@ -1568,54 +1378,60 @@
       </div>
     </section>
 
-    <!-- ═══ PROGRAMS ═══ -->
+    <!-- ═══ PROGRAMS — editorial index ═══ -->
     <section class="programs" aria-labelledby="programs-h2">
-      <div class="programs-header">
-        <div class="programs-header-left">
-          <p class="section-label">What We Offer</p>
-          <h2 id="programs-h2">Six programs.<br>One goal.</h2>
+      <div class="programs-inner">
+        <div class="programs-head">
+          <div class="programs-head-left">
+            <p class="section-label">What we offer</p>
+            <h2 id="programs-h2">Programs</h2>
+          </div>
+          <a href="/internships.html" class="arrow-link">See all programs</a>
         </div>
-        <a href="/internships.html" class="arrow-link" style="align-self: flex-start;">See all programs</a>
-      </div>
-      <div class="programs-scroll">
-        <div class="programs-list" role="list">
-          <article class="program" role="listitem">
-            <span class="program-num" aria-hidden="true">01</span>
-            <h3>Career Internships</h3>
-            <p>Paid placements at DOE National Labs, federal agencies, industry partners — in STEM and Business. Community college students especially welcome.</p>
-            <a href="/internships.html" class="arrow-link">Browse programs</a>
-          </article>
-          <article class="program" role="listitem">
-            <span class="program-num" aria-hidden="true">02</span>
-            <h3>CE-CDP Platform</h3>
-            <p>AI-powered skill gap analysis, personalized learning paths, and job matching for clean energy and STEM careers.</p>
-            <a href="/about.html" class="arrow-link">Learn more</a>
-          </article>
-          <article class="program" role="listitem">
-            <span class="program-num" aria-hidden="true">03</span>
-            <h3>Mentorship &amp; Coaching</h3>
-            <p>1:1 pairing with professionals who've made the journey. Resume reviews, interview prep, application support — all free.</p>
-            <a href="/about.html" class="arrow-link">Learn more</a>
-          </article>
-          <article class="program" role="listitem">
-            <span class="program-num" aria-hidden="true">04</span>
-            <h3>Scholarships &amp; Grants</h3>
-            <p>Merit and need-based awards to help students bridge financial gaps on the path to meaningful careers.</p>
-            <a href="/donate.html" class="arrow-link">Support students</a>
-          </article>
-          <article class="program" role="listitem">
-            <span class="program-num" aria-hidden="true">05</span>
-            <h3>LinkBot Newsletter</h3>
-            <p>Monthly deep-tech coverage for 5,000+ subscribers. Quantum, fusion, clean energy, semiconductors, and career opportunities.</p>
-            <a href="/newsletter.html" class="arrow-link">Subscribe free</a>
-          </article>
-          <article class="program" role="listitem">
-            <span class="program-num" aria-hidden="true">06</span>
-            <h3>Ultimate Internships List</h3>
-            <p>Real-time search across hundreds of opportunities, with an AI resume builder to craft standout applications.</p>
-            <a href="/internships.html" class="arrow-link">Search now</a>
-          </article>
-        </div>
+        <ul class="programs-index" role="list">
+          <li>
+            <a href="/internships.html">
+              <span class="prog-name">Career Internships</span>
+              <span class="prog-desc">Paid placements at DOE National Labs, federal agencies, and industry — STEM and Business both welcome</span>
+              <span class="prog-arrow">Browse programs →</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about.html">
+              <span class="prog-name">CE-CDP Platform</span>
+              <span class="prog-desc">AI-powered skill gap analysis, personalized learning paths, and job matching for clean energy careers</span>
+              <span class="prog-arrow">Learn more →</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about.html">
+              <span class="prog-name">Mentorship &amp; Coaching</span>
+              <span class="prog-desc">One-on-one pairing with professionals who've made the journey — resume reviews, interview prep, all free</span>
+              <span class="prog-arrow">Learn more →</span>
+            </a>
+          </li>
+          <li>
+            <a href="/donate.html">
+              <span class="prog-name">Scholarships &amp; Grants</span>
+              <span class="prog-desc">Merit and need-based awards to help students bridge financial gaps on the path to meaningful work</span>
+              <span class="prog-arrow">Support students →</span>
+            </a>
+          </li>
+          <li>
+            <a href="/newsletter.html">
+              <span class="prog-name">LinkBot Newsletter</span>
+              <span class="prog-desc">Monthly deep-tech coverage for 5,000+ subscribers — quantum, fusion, clean energy, semiconductors</span>
+              <span class="prog-arrow">Subscribe free →</span>
+            </a>
+          </li>
+          <li>
+            <a href="/internships.html">
+              <span class="prog-name">Ultimate Internships List</span>
+              <span class="prog-desc">Real-time search across hundreds of opportunities with an AI resume builder included</span>
+              <span class="prog-arrow">Search now →</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -1629,105 +1445,80 @@
         loading="lazy"
       />
       <div class="photo-feature-text">
-        <h2>Built by lab alumni, for future lab alumni.</h2>
+        <h2>Built by lab alumni, for the next generation.</h2>
         <p>Our co-founders went from community college to DOE National Labs to leading research institutions. They built LabLink so the path they took is available to everyone.</p>
-        <a href="/about.html" class="btn btn-primary">Meet the founders</a>
+        <a href="/about.html" class="btn btn-ghost-light">Meet the founders</a>
       </div>
     </div>
 
-    <!-- ═══ HOW IT WORKS ═══ -->
-    <section class="how" aria-labelledby="how-h2">
-      <div class="how-inner">
-        <div class="how-header">
-          <span class="section-label">The Process</span>
-          <h2 id="how-h2">How LabLink Works</h2>
+    <!-- ═══ EDITORIAL STATEMENT ═══ -->
+    <section class="statement" aria-labelledby="statement-h2">
+      <div class="statement-inner">
+        <div class="statement-left">
+          <h2 id="statement-h2">
+            Not a product.<br>
+            A community.
+          </h2>
         </div>
-        <div class="steps" role="list">
-          <div class="step" role="listitem">
-            <span class="step-number" aria-hidden="true">01</span>
-            <h3>Tell Us Your Goals</h3>
-            <p>Share your major, interests, and where you want to go. We'll match you with the right programs and timelines.</p>
-          </div>
-          <div class="step" role="listitem">
-            <span class="step-number" aria-hidden="true">02</span>
-            <h3>Explore Opportunities</h3>
-            <p>Browse curated listings across National Labs, federal agencies, and industry — filtered for your field and experience level.</p>
-          </div>
-          <div class="step" role="listitem">
-            <span class="step-number" aria-hidden="true">03</span>
-            <h3>Get Expert Support</h3>
-            <p>Work with mentors who've been there. Resume reviews, interview coaching, and application guidance — all included.</p>
-          </div>
-          <div class="step" role="listitem">
-            <span class="step-number" aria-hidden="true">04</span>
-            <h3>Launch Your Career</h3>
-            <p>Apply with confidence. Our network of partner organizations knows LabLink students show up prepared and motivated.</p>
-          </div>
+        <div class="statement-right">
+          <p>
+            Most career resources point students at a job board and call it done. We do something different: we sit with students, understand where they want to go, and help build the path to get there — whether that's a national lab, a federal agency, a startup, or graduate school.
+          </p>
+          <p>
+            We're a nonprofit. We don't charge students. We don't take placement fees. We work because we believe the talent exists — it just needs connection, guidance, and access.
+          </p>
+          <a href="/about.html" class="arrow-link">Our story</a>
         </div>
       </div>
     </section>
 
-    <!-- ═══ PARTNERS ═══ -->
-    <div class="partners" aria-labelledby="partners-label">
-      <p class="partners-label" id="partners-label">Partners &amp; Program Affiliates</p>
-      <div class="partners-scroll" aria-label="Partner organizations">
-        <div class="partners-track">
-          <div class="partner-logo" aria-label="DOE Office of Science">
-            <img src="images/doe-office-science-logo.png" alt="DOE Office of Science" width="100" height="30" loading="lazy" />
-          </div>
-          <div class="partner-logo" aria-label="NASA">
-            <img src="images/nasa-logo.webp" alt="NASA" width="80" height="30" loading="lazy" />
-          </div>
-          <div class="partner-logo" aria-label="AFRL">
-            <img src="images/afrl-logo.png" alt="Air Force Research Laboratory" width="90" height="30" loading="lazy" />
-          </div>
-          <div class="partner-logo" aria-label="Zintellect">
-            <img src="images/zintellect-logo.webp" alt="Zintellect" width="100" height="30" loading="lazy" />
-          </div>
-          <span class="partner-tag">INL</span>
-          <span class="partner-tag">Sandia NL</span>
-          <span class="partner-tag">LLNL</span>
-          <span class="partner-tag">ORNL</span>
-          <span class="partner-tag">LBNL</span>
-          <span class="partner-tag">Phi Theta Kappa</span>
-          <span class="partner-tag">ALPFA</span>
-          <span class="partner-tag">SNTJ</span>
-          <span class="partner-tag">SSG&amp;I</span>
-        </div>
+    <!-- ═══ AFFILIATES ═══ -->
+    <div class="affiliates">
+      <div class="affiliates-inner">
+        <p class="affiliates-label">Partners &amp; Affiliates</p>
+        <p class="affiliates-names">
+          <span>Idaho National Laboratory</span><span class="sep">·</span>
+          <span>Sandia National Laboratories</span><span class="sep">·</span>
+          <span>Lawrence Livermore National Laboratory</span><span class="sep">·</span>
+          <span>Oak Ridge National Laboratory</span><span class="sep">·</span>
+          <span>Lawrence Berkeley National Laboratory</span><span class="sep">·</span>
+          <span>NASA</span><span class="sep">·</span>
+          <span>Air Force Research Laboratory</span><span class="sep">·</span>
+          <span>Phi Theta Kappa</span><span class="sep">·</span>
+          <span>ALPFA</span><span class="sep">·</span>
+          <span>SNTJ</span><span class="sep">·</span>
+          <span>SSG&amp;I</span><span class="sep">·</span>
+          <span>DOE SULI Program</span><span class="sep">·</span>
+          <span>DOE CCI Program</span>
+        </p>
       </div>
     </div>
 
     <!-- ═══ PARTNER CTA ═══ -->
-    <section class="partner-cta" aria-labelledby="partner-h2">
-      <div class="partner-cta-inner">
-        <div class="partner-cta-left">
-          <p class="label">For Organizations</p>
-          <h2 id="partner-h2">Partner with LabLink Initiative.</h2>
-          <p>Access motivated, diverse college students ready for careers in STEM and Business. We vet students, support their development, and make placement easier for your team.</p>
-          <div class="partner-cta-btns">
-            <a href="mailto:lablinkinitiative@gmail.com" class="btn btn-primary">Contact Us</a>
-            <a href="/about.html" class="btn btn-ghost-light">Learn More</a>
-          </div>
+    <section class="org-cta" aria-labelledby="org-h2">
+      <div class="org-cta-inner">
+        <div class="org-cta-left">
+          <p class="org-cta-label">For Organizations</p>
+          <h2 id="org-h2">Working with college students?</h2>
+          <p>We identify, prepare, and place motivated students from community colleges and universities into meaningful roles. We vet them, support them, and stay invested in their success — before and after placement.</p>
+          <a href="mailto:lablinkinitiative@gmail.com" class="org-cta-link">lablinkinitiative@gmail.com</a>
         </div>
-        <div class="partner-cta-right">
-          <div class="cta-card">
-            <div class="cta-card-text">
-              <h3>National Labs &amp; Agencies</h3>
-              <p>Connect with students through our SULI and CCI pipeline. We prepare students for lab environments before day one.</p>
-            </div>
-          </div>
-          <div class="cta-card">
-            <div class="cta-card-text">
-              <h3>Industry Partners</h3>
-              <p>Recruit STEM and Business talent from community colleges and 4-year universities. Diverse, prepared, motivated.</p>
-            </div>
-          </div>
-          <div class="cta-card">
-            <div class="cta-card-text">
-              <h3>Nonprofits &amp; Foundations</h3>
-              <p>Co-host events, share resources, or formalize your partnership through an MOU. We're collaborative by design.</p>
-            </div>
-          </div>
+        <div class="org-cta-right">
+          <h3>We work with</h3>
+          <ul class="org-cta-who">
+            <li>
+              <h4>National Labs &amp; Federal Agencies</h4>
+              <p>Pipeline into your SULI and CCI programs. Students arrive prepared for lab and agency environments.</p>
+            </li>
+            <li>
+              <h4>Industry Partners</h4>
+              <p>Recruit STEM and Business talent from community colleges and four-year universities — diverse, motivated, and ready.</p>
+            </li>
+            <li>
+              <h4>Nonprofits &amp; Foundations</h4>
+              <p>Co-host events, share resources, or formalize through an MOU. Collaborative by design.</p>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -1767,7 +1558,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="footer-logo">Lab<em>Link</em> Initiative</a>
-        <p>Empowering the next generation of STEM and Business leaders through career experiences across National Laboratories, federal agencies, industry, and academia.</p>
+        <p>Empowering the next generation of leaders through career experiences across National Laboratories, federal agencies, industry, and academia.</p>
         <span class="nonprofit-mark">501(c)(3) Nonprofit</span>
       </div>
       <div class="footer-col" id="footer-programs">
@@ -1808,10 +1599,13 @@
   </footer>
 
   <script>
-    // ── Mobile navigation ──
+    // Mobile navigation
     const menuBtn = document.getElementById('menu-btn');
     const mobileNav = document.getElementById('mobile-nav');
     let isOpen = false;
+
+    // Remove hidden attr so it's accessible via CSS
+    mobileNav.removeAttribute('hidden');
 
     function openNav() {
       isOpen = true;
@@ -1830,28 +1624,22 @@
     }
 
     menuBtn.addEventListener('click', () => isOpen ? closeNav() : openNav());
-
     mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
-
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && isOpen) { closeNav(); menuBtn.focus(); }
     });
-
     window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
       if (e.matches && isOpen) closeNav();
     });
 
-    // ── Footer accordion (mobile only) ──
+    // Footer accordion (mobile only)
     if (window.innerWidth < 900) {
       document.querySelectorAll('.footer-col h4').forEach(h4 => {
         h4.addEventListener('click', () => {
-          const col = h4.parentElement;
-          col.classList.toggle('is-open');
+          h4.parentElement.classList.toggle('is-open');
         });
       });
     }
-
-    // Re-init accordion on resize
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 900) {
         document.querySelectorAll('.footer-col').forEach(col => col.classList.remove('is-open'));
