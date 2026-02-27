@@ -690,47 +690,74 @@
         max-width: 18ch;
         line-height: 1.15;
       }
-      .destinations-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1px;
-        background: rgba(255,255,255,0.08);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: var(--r-md);
-        overflow: hidden;
-        margin-top: var(--sp-8);
-      }
-      @media (min-width: 600px) {
-        .destinations-grid { grid-template-columns: 1fr 1fr; }
-      }
-      @media (min-width: 900px) {
-        .destinations-grid { grid-template-columns: repeat(4, 1fr); }
-      }
-      .destination {
-        background: rgba(46,58,35,0.6);
-        padding: var(--sp-6) var(--sp-4);
+      .destinations-list {
         display: flex;
         flex-direction: column;
-        gap: var(--sp-2);
-        transition: background var(--dur-base);
+        border-top: 1px solid rgba(255,255,255,0.12);
+        margin-top: var(--sp-8);
       }
-      .destination:hover { background: rgba(74,95,57,0.6); }
-      .dest-icon {
-        font-size: 1.75rem;
+      .destination-row {
+        display: flex;
+        gap: clamp(1.5rem, 4vw, 3rem);
+        padding: clamp(1.25rem, 3vw, 2rem) 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        align-items: flex-start;
+      }
+      @media (min-width: 640px) {
+        .destinations-list {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0;
+        }
+        .destination-row {
+          border-right: 1px solid rgba(255,255,255,0.08);
+        }
+        .destination-row:nth-child(2n) {
+          border-right: none;
+          padding-left: clamp(1.5rem, 4vw, 3rem);
+        }
+        .destination-row:nth-child(2n+1) {
+          padding-right: clamp(1.5rem, 4vw, 3rem);
+        }
+      }
+      @media (min-width: 1024px) {
+        .destinations-list {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .destination-row {
+          border-right: 1px solid rgba(255,255,255,0.08) !important;
+          padding-left: 0 !important;
+          padding-right: clamp(1rem, 2vw, 2rem) !important;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        .destination-row:last-child {
+          border-right: none !important;
+        }
+      }
+      .dest-num {
+        font-family: var(--font-editorial);
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: rgba(255,255,255,0.18);
         line-height: 1;
-        margin-bottom: var(--sp-1);
+        flex-shrink: 0;
+        min-width: 2rem;
       }
-      .destination h3 {
-        font-family: var(--font-ui);
-        font-size: var(--t-base);
-        font-weight: 700;
+      .dest-body { flex: 1; }
+      .destination-row h3 {
+        font-family: var(--font-editorial);
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+        font-weight: 400;
         color: var(--color-heading-dark);
-        letter-spacing: 0;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.5rem;
+        line-height: 1.25;
       }
-      .destination p {
+      .destination-row p {
         font-size: var(--t-sm);
         color: var(--moss-200);
-        line-height: 1.6;
+        line-height: 1.65;
       }
 
       /* ─────────────────────────────────────
@@ -798,59 +825,56 @@
       @media (min-width: 768px) {
         .programs-scroll { overflow-x: visible; }
         .programs-list {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          display: flex;
+          flex-direction: column;
           width: auto;
-        }
-        .programs-list .program:first-child {
-          grid-column: span 2;
-        }
-      }
-      @media (min-width: 1024px) {
-        .programs-list {
-          grid-template-columns: repeat(6, 1fr);
-        }
-        .programs-list .program:first-child {
-          grid-column: span 2;
+          gap: 0;
         }
       }
 
       .program {
         scroll-snap-align: start;
-        background: var(--bg);
-        border: 1px solid var(--border);
-        border-radius: var(--r-md);
-        padding: var(--sp-6) var(--sp-4);
-        width: 280px;
+        border-top: 1px solid var(--border);
+        padding: var(--sp-5) 0;
+        width: 260px;
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
-        gap: var(--sp-3);
-        transition: border-color var(--dur-base), box-shadow var(--dur-base);
-      }
-      .program:hover {
-        border-color: var(--moss-400);
-        box-shadow: var(--shadow-md);
+        gap: var(--sp-2);
       }
       @media (min-width: 768px) {
-        .program { width: auto; }
+        .program {
+          width: auto;
+          border-top: 1px solid var(--border);
+          flex-direction: row;
+          align-items: baseline;
+          gap: 2rem;
+          padding: var(--sp-4) 0;
+        }
+        .programs-list .program:last-child { border-bottom: 1px solid var(--border); }
+        .program-num { font-size: 1rem; min-width: 2.5rem; }
+        .program h3 { min-width: 220px; }
+        .program p { font-size: var(--t-sm); }
+        .program .arrow-link { white-space: nowrap; margin-left: auto; }
       }
 
       .program-num {
         font-family: var(--font-editorial);
-        font-size: var(--t-display);
-        line-height: 0.9;
-        letter-spacing: -0.04em;
-        color: var(--moss-100);
+        font-size: var(--t-lg);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--moss-200);
         font-weight: 400;
+        flex-shrink: 0;
       }
       .program h3 {
-        font-family: var(--font-ui);
-        font-size: var(--t-base);
-        font-weight: 700;
+        font-family: var(--font-editorial);
+        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+        font-weight: 400;
         color: var(--fg);
-        letter-spacing: 0;
+        letter-spacing: -0.01em;
         line-height: 1.3;
+        flex-shrink: 0;
       }
       .program p {
         font-size: var(--t-sm);
@@ -1118,33 +1142,25 @@
         gap: var(--sp-3);
       }
       .cta-card {
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: var(--r-md);
-        padding: var(--sp-4) var(--sp-4);
+        border-top: 1px solid rgba(255,255,255,0.12);
+        padding: var(--sp-4) 0;
         display: flex;
         align-items: flex-start;
         gap: var(--sp-3);
-        transition: background var(--dur-base);
       }
-      .cta-card:hover { background: rgba(255,255,255,0.1); }
-      .cta-card-icon {
-        font-size: 1.5rem;
-        flex-shrink: 0;
-        margin-top: 0.125rem;
-      }
+      .cta-card:last-child { border-bottom: 1px solid rgba(255,255,255,0.12); }
       .cta-card-text h3 {
-        font-family: var(--font-ui);
-        font-size: var(--t-sm);
-        font-weight: 700;
+        font-family: var(--font-editorial);
+        font-size: clamp(1rem, 2vw, 1.15rem);
+        font-weight: 400;
         color: var(--color-heading-dark);
-        letter-spacing: 0;
-        margin-bottom: 0.25rem;
+        letter-spacing: -0.01em;
+        margin-bottom: 0.35rem;
       }
       .cta-card-text p {
         font-size: var(--t-xs);
         color: var(--moss-200);
-        line-height: 1.55;
+        line-height: 1.6;
       }
       .partner-cta-btns {
         margin-top: var(--sp-4);
@@ -1386,7 +1402,7 @@
       <ul class="nav-links" role="list">
         <li><a href="/about.html">About</a></li>
         <li><a href="/internships.html">Internships</a></li>
-        <li><a href="https://lablinkinitiative.substack.com" target="_blank" rel="noopener">Newsletter</a></li>
+        <li><a href="/newsletter.html">Newsletter</a></li>
         <li><a href="/donate.html" class="nav-cta">Support Us</a></li>
       </ul>
       <button
@@ -1407,7 +1423,7 @@
   <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation" aria-modal="true">
     <a href="/about.html">About Us</a>
     <a href="/internships.html">Find Internships</a>
-    <a href="https://lablinkinitiative.substack.com" target="_blank" rel="noopener">Newsletter</a>
+    <a href="/newsletter.html">Newsletter</a>
     <a href="/donate.html" class="mobile-nav-cta">Support Our Mission →</a>
   </div>
 
@@ -1519,26 +1535,34 @@
             Careers across<br>every sector.
           </h2>
         </div>
-        <div class="destinations-grid" role="list">
-          <div class="destination" role="listitem">
-            <div class="dest-icon" aria-hidden="true">⚛️</div>
-            <h3>DOE National Laboratories</h3>
-            <p>INL, Sandia, LLNL, ORNL, LBNL, Argonne, and 12 more DOE labs. SULI and CCI program pathways.</p>
+        <div class="destinations-list" role="list">
+          <div class="destination-row" role="listitem">
+            <span class="dest-num" aria-hidden="true">01</span>
+            <div class="dest-body">
+              <h3>DOE National Laboratories</h3>
+              <p>INL, Sandia, LLNL, ORNL, LBNL, Argonne, and 12 more. SULI and CCI program pathways included.</p>
+            </div>
           </div>
-          <div class="destination" role="listitem">
-            <div class="dest-icon" aria-hidden="true">🏛️</div>
-            <h3>Federal Agencies</h3>
-            <p>NASA, DOE, EPA, DOD, AFRL, and other federal agencies. Science, policy, engineering, and business roles.</p>
+          <div class="destination-row" role="listitem">
+            <span class="dest-num" aria-hidden="true">02</span>
+            <div class="dest-body">
+              <h3>Federal Agencies</h3>
+              <p>NASA, DOE, EPA, DOD, AFRL, and more. Science, policy, engineering, and business roles.</p>
+            </div>
           </div>
-          <div class="destination" role="listitem">
-            <div class="dest-icon" aria-hidden="true">🏢</div>
-            <h3>Industry Partners</h3>
-            <p>Clean energy companies, tech firms, aerospace, defense, and biotech. Where research meets application.</p>
+          <div class="destination-row" role="listitem">
+            <span class="dest-num" aria-hidden="true">03</span>
+            <div class="dest-body">
+              <h3>Industry Partners</h3>
+              <p>Clean energy, tech, aerospace, defense, and biotech. Where research meets application.</p>
+            </div>
           </div>
-          <div class="destination" role="listitem">
-            <div class="dest-icon" aria-hidden="true">🎓</div>
-            <h3>Academia & Research</h3>
-            <p>University labs, research institutes, and graduate program pipelines for students who want to go deeper.</p>
+          <div class="destination-row" role="listitem">
+            <span class="dest-num" aria-hidden="true">04</span>
+            <div class="dest-body">
+              <h3>Academia &amp; Research</h3>
+              <p>University labs, research institutes, and graduate pipelines for students who want to go deeper.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -1583,7 +1607,7 @@
             <span class="program-num" aria-hidden="true">05</span>
             <h3>LinkBot Newsletter</h3>
             <p>Monthly deep-tech coverage for 5,000+ subscribers. Quantum, fusion, clean energy, semiconductors, and career opportunities.</p>
-            <a href="https://lablinkinitiative.substack.com" class="arrow-link" target="_blank" rel="noopener">Subscribe free</a>
+            <a href="/newsletter.html" class="arrow-link">Subscribe free</a>
           </article>
           <article class="program" role="listitem">
             <span class="program-num" aria-hidden="true">06</span>
@@ -1687,21 +1711,18 @@
         </div>
         <div class="partner-cta-right">
           <div class="cta-card">
-            <span class="cta-card-icon" aria-hidden="true">🏛️</span>
             <div class="cta-card-text">
               <h3>National Labs &amp; Agencies</h3>
               <p>Connect with students through our SULI and CCI pipeline. We prepare students for lab environments before day one.</p>
             </div>
           </div>
           <div class="cta-card">
-            <span class="cta-card-icon" aria-hidden="true">🏢</span>
             <div class="cta-card-text">
               <h3>Industry Partners</h3>
               <p>Recruit STEM and Business talent from community colleges and 4-year universities. Diverse, prepared, motivated.</p>
             </div>
           </div>
           <div class="cta-card">
-            <span class="cta-card-icon" aria-hidden="true">🤝</span>
             <div class="cta-card-text">
               <h3>Nonprofits &amp; Foundations</h3>
               <p>Co-host events, share resources, or formalize your partnership through an MOU. We're collaborative by design.</p>
@@ -1719,7 +1740,7 @@
         <p>Monthly coverage of quantum computing, fusion energy, clean energy, semiconductors, and career opportunities. 5,000+ subscribers.</p>
         <form
           class="email-form"
-          action="https://lablinkinitiative.substack.com"
+          action="mailto:lablinkinitiative@gmail.com"
           method="get"
           aria-label="Newsletter sign-up"
         >
@@ -1757,7 +1778,7 @@
           <li><a href="/internships.html">CCI Program</a></li>
           <li><a href="/about.html">CE-CDP Platform</a></li>
           <li><a href="/about.html">Mentorship</a></li>
-          <li><a href="https://lablinkinitiative.substack.com" target="_blank" rel="noopener">Newsletter</a></li>
+          <li><a href="/newsletter.html">Newsletter</a></li>
         </ul>
       </div>
       <div class="footer-col" id="footer-org">

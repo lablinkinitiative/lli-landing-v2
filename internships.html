@@ -162,9 +162,6 @@
       .deadline-badge { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.4rem 0.875rem; }
       .deadline-label { font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); }
       .deadline-date { font-size: var(--text-sm); font-weight: 600; color: var(--text-default); }
-      .track-btn { display: flex; align-items: center; justify-content: center; height: 44px; padding-inline: 1rem; background: var(--canvas); border: 1px solid var(--border); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all var(--t-fast); }
-      .track-btn:hover { border-color: var(--brand-500); color: var(--brand-700); }
-      .track-btn.tracked { background: var(--brand-100); border-color: var(--brand-700); color: var(--brand-700); }
       .no-results { display: none; text-align: center; padding: var(--sp-xl); color: var(--text-muted); }
       .no-results.visible { display: block; }
       .no-results button { margin-top: 0.875rem; }
@@ -204,30 +201,6 @@
       .quiz-restart { background: none; border: none; color: var(--brand-700); font-size: var(--text-sm); font-weight: 600; cursor: pointer; padding: 0; margin-top: var(--sp-md); min-height: 44px; display: flex; align-items: center; }
       .quiz-restart:hover { color: var(--brand-900); }
 
-      /* ── APPLICATION TRACKER ── */
-      .tracker-section { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--sp-lg); }
-      .tracker-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: var(--sp-lg); flex-wrap: wrap; }
-      .add-app-form { display: none; margin-bottom: var(--sp-md); background: var(--surface); border-radius: var(--radius-md); padding: var(--sp-md); }
-      .add-app-form.open { display: block; }
-      .form-row { display: grid; grid-template-columns: 1fr; gap: var(--sp-sm); margin-bottom: var(--sp-sm); }
-      @media (min-width: 600px) { .form-row { grid-template-columns: 1fr 1fr; } }
-      .form-label { font-size: var(--text-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 0.375rem; display: block; }
-      .form-input, .form-select { width: 100%; height: 48px; padding-inline: 0.875rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--white); color: var(--text-default); font-size: var(--text-base); transition: border-color var(--t-fast); }
-      .form-input:focus, .form-select:focus { border-color: var(--brand-700); outline: none; }
-      .form-actions { display: flex; gap: 0.625rem; flex-wrap: wrap; }
-      .tracker-list { display: flex; flex-direction: column; gap: 0.625rem; }
-      .tracker-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 0.875rem; display: flex; flex-direction: column; gap: 0.5rem; }
-      @media (min-width: 600px) { .tracker-item { flex-direction: row; align-items: center; flex-wrap: wrap; } }
-      .tracker-item-name { font-weight: 700; font-size: var(--text-base); color: var(--text-strong); flex: 1; min-width: 180px; }
-      .tracker-item-org { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.1rem; }
-      .tracker-deadline { font-size: var(--text-xs); color: var(--text-muted); white-space: nowrap; }
-      .status-select { height: 44px; padding-inline: 0.875rem; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--white); font-size: var(--text-sm); font-weight: 600; color: var(--text-default); cursor: pointer; }
-      .status-select.status-accepted { border-color: var(--accent-lime); color: var(--brand-700); }
-      .status-select.status-submitted { border-color: var(--accent-teal, #3F8E9E); }
-      .tracker-delete { background: none; border: none; color: var(--border); cursor: pointer; font-size: 1.1rem; padding: 0.25rem; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; transition: color var(--t-fast); border-radius: var(--radius-sm); }
-      .tracker-delete:hover { color: #C62828; background: rgba(198,40,40,0.08); }
-      .tracker-empty { text-align: center; padding: var(--sp-xl) var(--sp-md); color: var(--text-muted); }
-      .tracker-empty-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
 
       /* Page CTA */
       .page-cta { background: linear-gradient(140deg, var(--brand-900) 0%, #3a5230 60%, var(--brand-700) 100%); color: var(--white); padding: var(--sp-2xl) 1.25rem; text-align: center; }
@@ -260,7 +233,7 @@
     <ul class="nav-links" role="list">
       <li><a href="/about.html">About</a></li>
       <li><a href="/internships.html" aria-current="page">Internships</a></li>
-      <li><a href="https://lablinkinitiative.substack.com" target="_blank" rel="noopener">Newsletter</a></li>
+      <li><a href="/newsletter.html">Newsletter</a></li>
       <li><a href="/donate.html" class="nav-cta">Donate</a></li>
     </ul>
     <button class="hamburger" id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation">
@@ -275,7 +248,7 @@
   <nav>
     <a href="/about.html">About Us</a>
     <a href="/internships.html">Find Internships</a>
-    <a href="https://lablinkinitiative.substack.com" target="_blank" rel="noopener">Newsletter</a>
+    <a href="/newsletter.html">Newsletter</a>
   </nav>
   <a href="/donate.html" class="mobile-menu-cta">Support Our Mission →</a>
 </div>
@@ -295,8 +268,7 @@
   <div class="hero-links">
     <a href="#listings" class="hero-link-btn">Browse Programs</a>
     <a href="#assess" class="hero-link-btn">Skills Assessment</a>
-    <a href="#tracker" class="hero-link-btn">Application Tracker</a>
-    <a href="mailto:lablinkinitiative@gmail.com?subject=Internship Support" class="hero-link-btn">Get Help</a>
+<a href="mailto:lablinkinitiative@gmail.com?subject=Internship Support" class="hero-link-btn">Get Help</a>
   </div>
 </div>
 
@@ -331,7 +303,7 @@
   <section id="listings" aria-labelledby="listings-h2">
     <div class="section-tag">Internship Programs</div>
     <h2 class="section-title" id="listings-h2">10 Paid Opportunities — STEM &amp; Business</h2>
-    <p class="section-intro">Click any program to learn more. Use "Track This" to add it to your personal application tracker below.</p>
+    <p class="section-intro">Click any program to learn more about eligibility, deadlines, and how to apply.</p>
 
     <div class="listings-grid" id="listings-grid" role="list">
 
@@ -360,7 +332,6 @@
         <div class="listing-actions">
           <div class="deadline-badge"><div class="deadline-label">Summer 2026</div><div class="deadline-date">Check Zintellect</div></div>
           <a href="https://science.osti.gov/wdts/suli" target="_blank" rel="noopener" class="btn btn-green">Apply on Zintellect</a>
-          <button class="track-btn" onclick="trackProgram(this, 'DOE SULI', 'U.S. Department of Energy')">+ Track This</button>
         </div>
       </article>
 
@@ -388,7 +359,6 @@
         <div class="listing-actions">
           <div class="deadline-badge"><div class="deadline-label">Summer 2026</div><div class="deadline-date">Check Zintellect</div></div>
           <a href="https://science.osti.gov/wdts/cci" target="_blank" rel="noopener" class="btn btn-green">Apply on Zintellect</a>
-          <button class="track-btn" onclick="trackProgram(this, 'DOE CCI', 'U.S. Department of Energy')">+ Track This</button>
         </div>
       </article>
 
@@ -417,7 +387,6 @@
         <div class="listing-actions">
           <div class="deadline-badge"><div class="deadline-label">Summer 2026</div><div class="deadline-date">Check afrl.af.mil</div></div>
           <a href="https://afrlscholars.usra.edu/" target="_blank" rel="noopener" class="btn btn-green">View AFRL Scholars</a>
-          <button class="track-btn" onclick="trackProgram(this, 'AFRL Scholars', 'Air Force Research Laboratory')">+ Track This</button>
         </div>
       </article>
 
@@ -446,7 +415,6 @@
         <div class="listing-actions">
           <div class="deadline-badge"><div class="deadline-label">Ongoing</div><div class="deadline-date">internships.nasa.gov</div></div>
           <a href="https://intern.nasa.gov/" target="_blank" rel="noopener" class="btn btn-green">Apply at NASA</a>
-          <button class="track-btn" onclick="trackProgram(this, 'NASA Internships', 'NASA')">+ Track This</button>
         </div>
       </article>
 
@@ -474,7 +442,6 @@
         <div class="listing-actions">
           <div class="deadline-badge"><div class="deadline-label">Summer 2026</div><div class="deadline-date">Via Zintellect / INL.gov</div></div>
           <a href="https://inl.gov/inl-initiatives/education/student-programs/" target="_blank" rel="noopener" class="btn btn-green">View INL Programs</a>
-          <button class="track-btn" onclick="trackProgram(this, 'INL Undergraduate Research', 'Idaho National Laboratory')">+ Track This</button>
         </div>
       </article>
 
@@ -502,7 +469,6 @@
         <div class="listing-actions">
           <div class="deadline-badge"><div class="deadline-label">Year-round</div><div class="deadline-date">sandia.gov/careers</div></div>
           <a href="https://www.sandia.gov/careers/career-possibilities/students-and-postdocs/" target="_blank" rel="noopener" class="btn btn-green">View Sandia Programs</a>
-          <button class="track-btn" onclick="trackProgram(this, 'Sandia Student Internship', 'Sandia National Laboratories')">+ Track This</button>
         </div>
       </article>
 
@@ -530,7 +496,6 @@
         <div class="listing-actions">
           <div class="deadline-badge"><div class="deadline-label">Year-round</div><div class="deadline-date">careers.llnl.gov</div></div>
           <a href="https://www.llnl.gov/join-our-team/students-postdocs" target="_blank" rel="noopener" class="btn btn-green">View LLNL Programs</a>
-          <button class="track-btn" onclick="trackProgram(this, 'LLNL Student Internship', 'Lawrence Livermore National Laboratory')">+ Track This</button>
         </div>
       </article>
 
@@ -559,7 +524,6 @@
         <div class="listing-actions">
           <div class="deadline-badge"><div class="deadline-label">Spring Deadline</div><div class="deadline-date">Check Zintellect</div></div>
           <a href="https://mlef.orise.orau.gov/" target="_blank" rel="noopener" class="btn btn-green">Apply via ORISE</a>
-          <button class="track-btn" onclick="trackProgram(this, 'Mickey Leland Energy Fellowship', 'DOE / ORISE')">+ Track This</button>
         </div>
       </article>
 
@@ -588,7 +552,6 @@
         <div class="listing-actions">
           <div class="deadline-badge"><div class="deadline-label">Fall Deadline</div><div class="deadline-date">Check EPA.gov</div></div>
           <a href="https://www.epa.gov/careers/student-internships" target="_blank" rel="noopener" class="btn btn-green">View EPA Programs</a>
-          <button class="track-btn" onclick="trackProgram(this, 'EPA GRO Fellowship', 'U.S. EPA')">+ Track This</button>
         </div>
       </article>
 
@@ -616,7 +579,6 @@
         <div class="listing-actions">
           <div class="deadline-badge"><div class="deadline-label">Rolling</div><div class="deadline-date">Contact LLI directly</div></div>
           <a href="mailto:lablinkinitiative@gmail.com?subject=Industry Placement Inquiry" class="btn btn-green">Contact LabLink</a>
-          <button class="track-btn" onclick="trackProgram(this, 'LLI Industry Placement', 'LabLink Initiative Partners')">+ Track This</button>
         </div>
       </article>
 
@@ -709,60 +671,6 @@
     </div>
   </section>
 
-  <!-- APPLICATION TRACKER -->
-  <section id="tracker" aria-labelledby="tracker-h2">
-    <div class="tracker-section">
-      <div class="tracker-header">
-        <div>
-          <div class="section-tag">Application Tracker</div>
-          <h2 class="section-title" id="tracker-h2">Track Your Applications</h2>
-          <p style="font-size:var(--text-sm);color:var(--text-muted);margin-top:0.25rem;">Your progress is saved locally in your browser. No account needed.</p>
-        </div>
-        <button class="btn btn-lime" onclick="toggleAddForm()">+ Add Application</button>
-      </div>
-
-      <div class="add-app-form" id="add-app-form">
-        <div class="form-row">
-          <div>
-            <label class="form-label" for="app-name">Program Name</label>
-            <input type="text" id="app-name" class="form-input" placeholder="e.g. DOE SULI — Summer 2026" />
-          </div>
-          <div>
-            <label class="form-label" for="app-org">Organization</label>
-            <input type="text" id="app-org" class="form-input" placeholder="e.g. Idaho National Laboratory" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div>
-            <label class="form-label" for="app-deadline">Deadline</label>
-            <input type="text" id="app-deadline" class="form-input" placeholder="e.g. January 9, 2026" />
-          </div>
-          <div>
-            <label class="form-label" for="app-status">Status</label>
-            <select id="app-status" class="form-select">
-              <option value="researching">Researching</option>
-              <option value="preparing">Preparing Application</option>
-              <option value="submitted">Submitted</option>
-              <option value="pending">Decision Pending</option>
-              <option value="accepted">Accepted ✓</option>
-              <option value="declined">Not Selected</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-actions">
-          <button class="btn btn-green" onclick="addApplication()">Add to Tracker</button>
-          <button class="btn btn-outline" onclick="toggleAddForm()">Cancel</button>
-        </div>
-      </div>
-
-      <div class="tracker-list" id="tracker-list"></div>
-      <div class="tracker-empty" id="tracker-empty">
-        <div class="tracker-empty-icon">📋</div>
-        <div style="font-weight:700;color:var(--text-default);margin-bottom:0.5rem;">No applications tracked yet</div>
-        <div style="font-size:var(--text-sm);">Click "+ Track This" on any listing above, or use the "Add Application" button to get started.</div>
-      </div>
-    </div>
-  </section>
 
 </div><!-- /main-content -->
 
@@ -916,69 +824,6 @@ function restartQuiz() {
   updateProgress(0);
 }
 
-// ── APPLICATION TRACKER ──
-let applications = JSON.parse(localStorage.getItem('lli_tracker') || '[]');
-function saveTracker() { localStorage.setItem('lli_tracker', JSON.stringify(applications)); renderTracker(); }
-function renderTracker() {
-  const list = document.getElementById('tracker-list');
-  const empty = document.getElementById('tracker-empty');
-  if (applications.length === 0) { list.innerHTML = ''; empty.style.display = 'block'; return; }
-  empty.style.display = 'none';
-  list.innerHTML = applications.map((app, i) => `
-    <div class="tracker-item">
-      <div style="flex:1;min-width:180px;">
-        <div class="tracker-item-name">${escHtml(app.name)}</div>
-        <div class="tracker-item-org">${escHtml(app.org)}</div>
-      </div>
-      ${app.deadline ? `<div class="tracker-deadline">📅 ${escHtml(app.deadline)}</div>` : ''}
-      <select class="status-select status-${app.status}" onchange="updateStatus(${i},this.value)">
-        <option value="researching" ${app.status==='researching'?'selected':''}>Researching</option>
-        <option value="preparing" ${app.status==='preparing'?'selected':''}>Preparing</option>
-        <option value="submitted" ${app.status==='submitted'?'selected':''}>Submitted</option>
-        <option value="pending" ${app.status==='pending'?'selected':''}>Decision Pending</option>
-        <option value="accepted" ${app.status==='accepted'?'selected':''}>Accepted ✓</option>
-        <option value="declined" ${app.status==='declined'?'selected':''}>Not Selected</option>
-      </select>
-      <button class="tracker-delete" onclick="removeApp(${i})" aria-label="Remove ${escHtml(app.name)}">✕</button>
-    </div>
-  `).join('');
-}
-function escHtml(str) { return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function updateStatus(i, val) { applications[i].status = val; saveTracker(); }
-function removeApp(i) { applications.splice(i, 1); saveTracker(); }
-function toggleAddForm() { document.getElementById('add-app-form').classList.toggle('open'); }
-function addApplication() {
-  const name = document.getElementById('app-name').value.trim();
-  const org = document.getElementById('app-org').value.trim();
-  const deadline = document.getElementById('app-deadline').value.trim();
-  const status = document.getElementById('app-status').value;
-  if (!name) { alert('Please enter a program name.'); return; }
-  applications.push({ name, org, deadline, status });
-  saveTracker();
-  document.getElementById('app-name').value = '';
-  document.getElementById('app-org').value = '';
-  document.getElementById('app-deadline').value = '';
-  document.getElementById('app-status').value = 'researching';
-  document.getElementById('add-app-form').classList.remove('open');
-}
-function trackProgram(btn, name, org) {
-  if (applications.find(a => a.name === name)) { alert(name + ' is already in your tracker.'); return; }
-  applications.push({ name, org, deadline: '', status: 'researching' });
-  saveTracker();
-  btn.classList.add('tracked');
-  btn.textContent = '✓ Tracking';
-  document.getElementById('tracker').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-function restoreTrackedButtons() {
-  const trackedNames = applications.map(a => a.name);
-  document.querySelectorAll('.track-btn').forEach(btn => {
-    const onclickAttr = btn.getAttribute('onclick');
-    const match = onclickAttr && onclickAttr.match(/'([^']+)'/);
-    if (match && trackedNames.includes(match[1])) { btn.classList.add('tracked'); btn.textContent = '✓ Tracking'; }
-  });
-}
-renderTracker();
-restoreTrackedButtons();
 </script>
 </body>
 </html>
