@@ -390,7 +390,11 @@
       /* ── HERO ── */
       .hero {
         position: relative;
-        background: var(--moss-900);
+        background:
+          radial-gradient(ellipse 75% 65% at 15% 50%, rgba(165,196,58,0.13) 0%, transparent 60%),
+          radial-gradient(ellipse 55% 55% at 85% 15%, rgba(63,142,158,0.09) 0%, transparent 60%),
+          radial-gradient(ellipse 50% 70% at 55% 90%, rgba(46,58,35,0.6) 0%, transparent 65%),
+          var(--moss-900);
         color: #fff;
         overflow: hidden;
         min-height: clamp(480px, 80vh, 720px);
@@ -399,22 +403,24 @@
         padding-bottom: clamp(3rem, 8vw, 5rem);
       }
 
-      .hero-img {
+      /* Subtle grid texture */
+      .hero::before {
+        content: '';
         position: absolute;
         inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 30%;
-        opacity: 0.45;
+        background-image:
+          linear-gradient(rgba(165,196,58,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(165,196,58,0.04) 1px, transparent 1px);
+        background-size: 48px 48px;
+        pointer-events: none;
       }
 
+      /* Bottom fade to ensure text legibility */
       .hero::after {
         content: '';
         position: absolute;
         inset: 0;
-        background:
-          linear-gradient(to top, rgba(31,42,23,0.97) 0%, rgba(31,42,23,0.6) 45%, rgba(31,42,23,0.2) 100%);
+        background: linear-gradient(to top, rgba(31,42,23,0.55) 0%, transparent 50%);
         pointer-events: none;
       }
 
@@ -1269,14 +1275,6 @@
 
     <!-- ═══ HERO ═══ -->
     <section class="hero" aria-labelledby="hero-h1">
-      <img
-        class="hero-img"
-        src="images/students-collaborating-outdoors.jpg"
-        alt="College students collaborating at a national laboratory"
-        width="1400"
-        height="900"
-        fetchpriority="high"
-      />
       <div class="hero-inner">
         <div class="hero-eyebrow" aria-label="501(c)(3) Nonprofit · Free for Students">
           501(c)(3) Nonprofit · Free for Students
