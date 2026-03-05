@@ -4,428 +4,314 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — LabLink Initiative</title>
-  <meta name="description" content="Privacy Policy for LabLink Initiative, a 501(c)(3) nonprofit connecting college students with career experiences." />
+  <meta name="description" content="Privacy Policy for LabLink Initiative — how we collect, use, and protect your personal information." />
   <meta name="theme-color" content="#2E3A23" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <style>
     @layer reset, tokens, base, layout, components;
-
     @layer reset {
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      html { scroll-behavior: smooth; text-size-adjust: 100%; }
-      body { min-height: 100dvh; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-      img, svg, video { display: block; max-width: 100%; }
+      html { scroll-behavior: smooth; }
+      body { min-height: 100dvh; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+      img, picture, video, canvas, svg { display: block; max-width: 100%; }
       input, button, textarea, select { font: inherit; }
-      p, h1, h2, h3, h4 { overflow-wrap: break-word; }
+      p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      }
     }
-
     @layer tokens {
       :root {
-        --moss-900: #1F2A17;
-        --moss-800: #2E3A23;
-        --moss-700: #3D4E2F;
-        --moss-600: #4A5F39;
-        --moss-400: #6E8A53;
-        --moss-200: #A7BE8E;
-        --moss-100: #D8E8C4;
-        --moss-50:  #EEF5E6;
-
-        --lime:      #9AB82E;
-        --lime-dark: #7FA020;
-
-        --sand:  #C9B896;
-        --stone: #F5F1E8;
-        --parchment: #FAF8F2;
-
-        --bg:           var(--parchment);
-        --bg-alt:       var(--stone);
-        --bg-dark:      var(--moss-800);
-        --bg-darkest:   var(--moss-900);
-        --fg:           #1A1D18;
-        --fg-muted:     #4A5244;
-        --fg-faint:     #7A8574;
-        --border:       #D4CEB8;
-
-        --font-editorial: 'DM Serif Display', Georgia, 'Times New Roman', serif;
-        --font-ui:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-
-        --t-sm:   clamp(0.875rem, 2vw, 0.9375rem);
-        --t-base: clamp(1rem, 2.5vw, 1.0625rem);
-        --t-lg:   clamp(1.125rem, 3vw, 1.25rem);
-        --t-xl:   clamp(1.25rem, 3.5vw, 1.5rem);
-        --t-2xl:  clamp(1.5rem, 4vw, 2rem);
-        --t-3xl:  clamp(2rem, 5vw, 2.75rem);
-
-        --sp-2:  clamp(0.5rem,  1.5vw, 0.75rem);
-        --sp-3:  clamp(0.75rem, 2vw, 1rem);
-        --sp-4:  clamp(1rem,    3vw, 1.5rem);
-        --sp-6:  clamp(1.5rem,  4vw, 2.5rem);
-        --sp-8:  clamp(2rem,    5vw, 3.5rem);
-        --sp-12: clamp(3rem,    7vw, 5rem);
-        --sp-16: clamp(4rem,    9vw, 7rem);
-
-        --w-content: 1100px;
-        --w-text:    720px;
-
-        --r-sm:   2px;
-        --r-md:   3px;
-        --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        --dur-fast: 120ms;
-        --dur-base: 200ms;
+        --brand-900: #2E3A23; --brand-700: #4A5F39; --brand-500: #6E8A53;
+        --brand-300: #A7BE8E; --brand-100: #DCE8CC;
+        --accent-lime: #A5C43A; --accent-lime-dark: #8AAF1E; --on-lime: #1D2A10;
+        --canvas: #FAF8F0; --surface: #F3F0E6; --border: #C9C2AE;
+        --text-strong: #111312; --text-default: #253021; --text-muted: #5F6A58; --white: #FFFFFF;
+        --text-xs: clamp(0.72rem, 2vw, 0.8rem); --text-sm: clamp(0.875rem, 2.5vw, 0.9375rem);
+        --text-base: clamp(1rem, 3vw, 1.0625rem); --text-lg: clamp(1.1rem, 3vw, 1.25rem);
+        --text-xl: clamp(1.25rem, 4vw, 1.5rem); --text-2xl: clamp(1.5rem, 5vw, 2.25rem);
+        --text-hero: clamp(2rem, 7vw, 3.25rem);
+        --sp-sm: clamp(0.75rem, 3vw, 1rem); --sp-md: clamp(1rem, 4vw, 1.5rem);
+        --sp-lg: clamp(1.5rem, 5vw, 2.5rem); --sp-xl: clamp(2rem, 6vw, 4rem);
+        --sp-2xl: clamp(3rem, 8vw, 6rem);
+        --max-w: 1100px; --max-w-sm: 680px;
+        --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px;
+        --ease: cubic-bezier(0.25,0.46,0.45,0.94); --t-fast: 120ms; --t-base: 200ms;
       }
     }
-
     @layer base {
-      body {
-        font-family: var(--font-ui);
-        font-size: var(--t-base);
-        line-height: 1.65;
-        color: var(--fg);
-        background: var(--bg);
-      }
-      h1, h2, h3 {
-        font-family: var(--font-editorial);
-        font-weight: 400;
-        line-height: 1.2;
-        letter-spacing: -0.02em;
-        color: var(--fg);
-      }
-      a { color: var(--moss-700); }
-      a:hover { color: var(--moss-900); }
-      .skip-link {
-        position: absolute; top: -100%; left: 1rem;
-        background: var(--moss-800); color: #fff;
-        padding: 0.5rem 1rem; font-size: var(--t-sm); font-weight: 600;
-        z-index: 9999; transition: top var(--dur-fast);
-      }
-      .skip-link:focus { top: 0; }
+      body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--canvas); color: var(--text-default); font-size: var(--text-base); }
+      h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; color: var(--text-strong); letter-spacing: -0.01em; }
+      a { color: inherit; text-decoration: none; }
+      :focus-visible { outline: 3px solid var(--accent-lime); outline-offset: 3px; border-radius: var(--radius-sm); }
+      :focus:not(:focus-visible) { outline: none; }
     }
-
     @layer layout {
-      .wrap      { max-width: var(--w-content); margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2rem); }
-      .wrap-text { max-width: var(--w-text);   margin-inline: auto; padding-inline: clamp(1.25rem, 5vw, 2rem); }
+      .wrap { width: min(var(--max-w), 100% - 2rem); margin-inline: auto; }
     }
-
     @layer components {
+      .skip-link { position: absolute; top: -100%; left: 1rem; z-index: 9999; background: var(--brand-700); color: var(--white); padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 0 0 var(--radius-md) var(--radius-md); transition: top var(--t-fast) var(--ease); }
+      .skip-link:focus { top: 0; }
 
-      /* NAV */
-      .site-nav {
-        position: sticky; top: 0; z-index: 100;
-        background: rgba(250,248,242,0.94);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border);
-      }
-      .nav-inner {
-        display: flex; align-items: center; justify-content: space-between;
-        gap: var(--sp-4); max-width: var(--w-content);
-        margin-inline: auto; padding: 0 clamp(1.25rem, 5vw, 2rem); height: 60px;
-      }
-      .nav-logo {
-        font-family: var(--font-editorial);
-        font-size: clamp(1.1rem, 3vw, 1.375rem);
-        letter-spacing: -0.02em; color: var(--moss-800);
-        text-decoration: none; white-space: nowrap; flex-shrink: 0;
-      }
-      .nav-logo em { font-style: italic; color: var(--moss-600); }
-      .nav-links {
-        display: none; align-items: center;
-        gap: var(--sp-4); list-style: none;
-      }
+      .site-nav { position: sticky; top: 0; z-index: 200; background: rgba(250,248,242,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+      .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; max-width: var(--max-w); margin-inline: auto; padding: 0 1.25rem; height: 60px; }
+      .nav-logo { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(1.1rem, 3vw, 1.375rem); font-weight: 400; letter-spacing: -0.02em; color: var(--brand-900); text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+      .nav-logo em { font-style: italic; color: var(--brand-700); }
+      .nav-links { display: none; align-items: center; gap: 1.25rem; list-style: none; }
       @media (min-width: 768px) { .nav-links { display: flex; } }
-      .nav-links a {
-        font-size: var(--t-sm); font-weight: 500; color: var(--fg-muted);
-        text-decoration: none; transition: color var(--dur-fast); padding-block: 0.25rem;
-      }
-      .nav-links a:hover { color: var(--fg); }
-      .nav-links .nav-cta {
-        display: inline-flex; align-items: center;
-        background: var(--moss-800); color: #fff;
-        padding: 0.5rem 1.125rem; border-radius: var(--r-sm);
-        font-weight: 600; font-size: var(--t-sm);
-        transition: background var(--dur-fast);
-      }
-      .nav-links .nav-cta:hover { background: var(--moss-900); }
+      .nav-links a { font-size: var(--text-sm); font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color var(--t-fast); }
+      .nav-links a:hover { color: var(--text-strong); }
+      .nav-links .nav-cta { background: var(--brand-900); color: #fff; padding: 0.5rem 1.125rem; border-radius: 3px; font-weight: 600; transition: background var(--t-fast); }
+      .nav-links .nav-cta:hover { background: #1F2A17; }
+      .hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 10px; }
+      @media (min-width: 768px) { .hamburger { display: none; } }
+      .bar { display: block; width: 100%; height: 2px; background: var(--text-strong); border-radius: 0; transition: transform var(--t-base) var(--ease), opacity var(--t-fast); }
+      .hamburger[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+      .hamburger[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .mobile-nav { position: fixed; inset: 60px 0 0; background: var(--canvas); z-index: 199; padding: 1.5rem 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; transform: translateX(100%); transition: transform var(--t-base) var(--ease); overflow-y: auto; }
+      .mobile-nav.is-open { transform: translateX(0); }
+      .mobile-nav a { display: flex; align-items: center; min-height: 52px; font-size: 1.125rem; font-weight: 500; color: var(--text-default); border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
+      .mobile-nav a:last-child { border-bottom: none; }
+      .mobile-nav a:hover { color: var(--brand-700); }
+      .mobile-nav-cta { margin-top: 1rem; display: flex !important; align-items: center; justify-content: center; background: var(--brand-900) !important; color: #fff !important; font-weight: 700 !important; min-height: 54px !important; border-bottom: none !important; }
 
-      /* PAGE HEADER */
-      .page-header {
-        padding-block: var(--sp-12) var(--sp-8);
-        border-bottom: 1px solid var(--border);
-      }
-      .page-header .eyebrow {
-        font-size: var(--t-sm); font-weight: 600; letter-spacing: 0.08em;
-        text-transform: uppercase; color: var(--moss-400);
-        margin-bottom: var(--sp-3);
-      }
-      .page-header h1 {
-        font-size: var(--t-3xl); margin-bottom: var(--sp-3);
-      }
-      .page-header .meta {
-        font-size: var(--t-sm); color: var(--fg-faint);
-      }
+      .page-hero { background: linear-gradient(140deg, var(--brand-900) 0%, #3a5230 60%, var(--brand-700) 100%); color: var(--white); padding: var(--sp-xl) 1.25rem var(--sp-lg); text-align: center; position: relative; overflow: hidden; }
+      .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 85% 20%, rgba(165,196,58,0.07) 0%, transparent 70%); pointer-events: none; }
+      .breadcrumb { font-size: var(--text-xs); color: var(--brand-300); margin-bottom: var(--sp-sm); }
+      .breadcrumb a { color: var(--brand-300); }
+      .breadcrumb a:hover { color: var(--white); }
+      .page-hero h1 { position: relative; font-size: var(--text-hero); color: var(--white); max-width: 700px; margin-inline: auto; margin-bottom: 0.75rem; }
+      .page-hero > .hero-sub { position: relative; color: var(--brand-300); font-size: var(--text-lg); max-width: 560px; margin: 0 auto; line-height: 1.7; }
 
-      /* CONTENT */
-      .legal-content {
-        padding-block: var(--sp-12);
-      }
-      .legal-content section {
-        margin-bottom: var(--sp-8);
-      }
-      .legal-content h2 {
-        font-size: var(--t-xl);
-        margin-bottom: var(--sp-3);
-        padding-bottom: var(--sp-2);
-        border-bottom: 1px solid var(--border);
-      }
-      .legal-content p {
-        margin-bottom: var(--sp-3);
-        color: var(--fg-muted);
-      }
-      .legal-content p:last-child { margin-bottom: 0; }
-      .legal-content ul {
-        margin: var(--sp-3) 0 var(--sp-3) 1.5rem;
-        color: var(--fg-muted);
-      }
-      .legal-content ul li { margin-bottom: 0.5rem; }
-      .legal-content a { color: var(--moss-700); }
-      .legal-content a:hover { color: var(--moss-900); }
-      .highlight-box {
-        background: var(--moss-50);
-        border: 1px solid var(--moss-100);
-        border-left: 3px solid var(--moss-400);
-        padding: var(--sp-4);
-        border-radius: 0 var(--r-md) var(--r-md) 0;
-        margin-bottom: var(--sp-4);
-        color: var(--fg-muted);
-        font-size: var(--t-sm);
-      }
+      .legal-body { padding: var(--sp-2xl) 1.25rem; }
+      .legal-inner { max-width: 720px; margin-inline: auto; }
+      .legal-inner h2 { font-size: var(--text-xl); margin-top: var(--sp-lg); margin-bottom: 0.6rem; color: var(--text-strong); }
+      .legal-inner h2:first-child { margin-top: 0; }
+      .legal-inner p { color: var(--text-muted); line-height: 1.8; margin-bottom: 0.875rem; }
+      .legal-inner ul { padding-left: 1.5rem; margin-bottom: 0.875rem; }
+      .legal-inner ul li { color: var(--text-muted); line-height: 1.8; margin-bottom: 0.35rem; }
+      .legal-inner a { color: var(--brand-700); text-decoration: underline; text-underline-offset: 2px; }
+      .legal-inner a:hover { color: var(--brand-900); }
+      .legal-meta { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: var(--sp-lg); font-size: var(--text-sm); color: var(--text-muted); }
+      .legal-toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--sp-md); margin-bottom: var(--sp-lg); }
+      .legal-toc h3 { font-family: 'Inter', sans-serif; font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-500); margin-bottom: 0.75rem; }
+      .legal-toc ol { padding-left: 1.25rem; }
+      .legal-toc ol li { font-size: var(--text-sm); color: var(--text-muted); margin-bottom: 0.3rem; }
+      .legal-toc ol li a { color: var(--brand-700); text-decoration: none; }
+      .legal-toc ol li a:hover { text-decoration: underline; }
+      .section-anchor { scroll-margin-top: 80px; }
+      hr.legal-divider { border: none; border-top: 1px solid var(--border); margin: var(--sp-lg) 0; }
 
-      /* FOOTER */
-      footer {
-        background: var(--bg-darkest);
-        color: var(--moss-200);
-        padding: var(--sp-12) clamp(1.25rem, 5vw, 2rem) var(--sp-6);
-      }
-      .footer-grid {
-        max-width: var(--w-content); margin-inline: auto;
-        display: grid; gap: var(--sp-8);
-        grid-template-columns: 1fr;
-        margin-bottom: var(--sp-8);
-      }
-      @media (min-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-      @media (min-width: 900px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; } }
-      .footer-logo {
-        font-family: var(--font-editorial); font-size: var(--t-xl);
-        letter-spacing: -0.02em; color: #fff;
-        text-decoration: none; display: block; margin-bottom: var(--sp-3);
-      }
-      .footer-logo em { font-style: italic; color: var(--moss-200); }
-      .footer-brand p { font-size: var(--t-sm); line-height: 1.6; max-width: 28ch; }
-      .nonprofit-mark {
-        display: inline-block; margin-top: var(--sp-3);
-        font-size: var(--t-xs, 0.75rem); font-weight: 600; letter-spacing: 0.06em;
-        text-transform: uppercase; color: var(--moss-200);
-        border: 1px solid rgba(167,190,142,0.3);
-        padding: 0.25rem 0.625rem; border-radius: 2px;
-      }
-      .footer-col h4 {
-        font-family: var(--font-ui); font-size: var(--t-sm); font-weight: 600;
-        letter-spacing: 0.05em; text-transform: uppercase;
-        color: #fff; margin-bottom: var(--sp-3);
-      }
-      .footer-links { list-style: none; }
-      .footer-links a {
-        font-size: var(--t-sm); color: var(--moss-200);
-        text-decoration: none; display: block;
-        padding-block: 0.25rem;
-        transition: color var(--dur-fast);
-      }
-      .footer-links a:hover { color: #fff; }
-      .footer-bottom {
-        max-width: var(--w-content); margin-inline: auto;
-        border-top: 1px solid rgba(255,255,255,0.08);
-        padding-top: var(--sp-4);
-        display: flex; flex-wrap: wrap; gap: var(--sp-3);
-        align-items: center; justify-content: space-between;
-        font-size: var(--t-sm); color: var(--moss-400);
-      }
-      .footer-bottom a { color: var(--moss-200); text-decoration: none; }
-      .footer-bottom a:hover { color: #fff; }
-      .footer-legal-links { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
+      footer { background: var(--brand-900); color: var(--brand-300); padding: var(--sp-md) 1.25rem; font-size: var(--text-sm); }
+      .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+      @media (min-width: 600px) { .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+      footer a { color: var(--brand-300); }
+      footer a:hover { color: var(--white); }
+      .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
     }
   </style>
 </head>
 <body>
-
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="/" class="nav-logo" aria-label="LabLink Initiative home">Lab<em>Link</em> Initiative</a>
       <ul class="nav-links" role="list">
         <li><a href="/about.html">About</a></li>
-        <li><a href="https://intern.lablinkinitiative.org">Internships</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/donate.html" class="nav-cta">Donate</a></li>
       </ul>
+      <button class="hamburger" id="menu-btn" aria-expanded="false" aria-label="Open navigation" aria-controls="mobile-nav">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
     </div>
   </nav>
 
-  <main id="main">
-    <div class="page-header">
-      <div class="wrap-text">
-        <p class="eyebrow">Legal</p>
-        <h1>Privacy Policy</h1>
-        <p class="meta">Effective date: March 1, 2026 &nbsp;·&nbsp; LabLink Initiative</p>
-      </div>
-    </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about.html">About Us</a>
+    <a href="/blog/">Blog</a>
+    <a href="/donate.html" class="mobile-nav-cta">Support Our Mission →</a>
+  </nav>
 
-    <div class="legal-content">
-      <div class="wrap-text">
+  <header class="page-hero">
+    <div class="breadcrumb"><a href="/">Home</a> / Privacy Policy</div>
+    <h1>Privacy Policy</h1>
+    <p class="hero-sub">We collect only what we need and never sell your data. Here's exactly what we do with your information.</p>
+  </header>
 
-        <div class="highlight-box">
-          <strong>The short version:</strong> We collect only what we need to provide our services. We never sell your personal information. We are a nonprofit — your data helps us connect you with opportunities, nothing else.
+  <main id="main-content">
+    <div class="legal-body">
+      <div class="legal-inner">
+
+        <div class="legal-meta">
+          <strong>Effective Date:</strong> March 1, 2026 &nbsp;&middot;&nbsp;
+          <strong>Last Updated:</strong> March 1, 2026 &nbsp;&middot;&nbsp;
+          Questions? <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a>
         </div>
 
-        <section>
-          <h2>1. About This Policy</h2>
-          <p>LabLink Initiative ("LabLink," "we," "us," or "our") is a 501(c)(3) nonprofit organization. This Privacy Policy explains how we collect, use, and protect information when you use our services, including lablinkinitiative.org, the Career Development Platform (CDP), the Internship Portal, and the Newsletter.</p>
-          <p>By using our services, you agree to the practices described in this Policy. If you do not agree, please discontinue use of our services.</p>
-        </section>
+        <div class="legal-toc">
+          <h3>Contents</h3>
+          <ol>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#what-we-collect">Information We Collect</a></li>
+            <li><a href="#how-we-use">How We Use Your Information</a></li>
+            <li><a href="#sharing">Information Sharing</a></li>
+            <li><a href="#cookies">Cookies and Tracking</a></li>
+            <li><a href="#data-retention">Data Retention</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#your-rights">Your Rights</a></li>
+            <li><a href="#children">Children's Privacy</a></li>
+            <li><a href="#changes">Changes to This Policy</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ol>
+        </div>
 
-        <section>
-          <h2>2. Information We Collect</h2>
-          <p><strong>Account information:</strong> When you create a CDP account, we collect your name and email address. If you sign in with Google, we receive your name, email, and Google account ID from Google's OAuth service.</p>
-          <p><strong>Profile information:</strong> Information you voluntarily add to your CDP profile, such as your major, graduation year, GPA, research interests, and career goals.</p>
-          <p><strong>Uploaded documents:</strong> Resumes and other documents you upload to the CDP. These are stored securely and used only to provide career gap analyses and pathway recommendations.</p>
-          <p><strong>Usage data:</strong> Basic information about how you interact with our services, such as pages viewed and features used. We use this to improve our platform.</p>
-          <p><strong>Newsletter subscriptions:</strong> If you subscribe to our newsletter, we store your email address to deliver communications. You can unsubscribe at any time.</p>
-        </section>
+        <h2 id="overview" class="section-anchor">1. Overview</h2>
+        <p>LabLink Initiative ("LLI," "we," "us," or "our") is a 501(c)(3) nonprofit organization. We are committed to protecting your personal information and being transparent about how we use it.</p>
+        <p>This Privacy Policy applies to lablinkinitiative.org, cdp.lablinkinitiative.org, intern.lablinkinitiative.org, newsletter.lablinkinitiative.org, and any other platforms we operate. By using our services, you agree to the practices described in this policy.</p>
+        <p><strong>The short version:</strong> We collect only what we need to provide our services. We do not sell, rent, or share your personal data with advertisers or data brokers.</p>
 
-        <section>
-          <h2>3. How We Use Your Information</h2>
-          <p>We use the information we collect to:</p>
-          <ul>
-            <li>Provide and improve our services (CDP, Internship Portal, Newsletter)</li>
-            <li>Generate personalized career pathway recommendations and gap analyses</li>
-            <li>Send you relevant internship deadlines and opportunity alerts (if subscribed)</li>
-            <li>Respond to your questions or support requests</li>
-            <li>Analyze aggregate, anonymized usage trends to improve our platform</li>
-          </ul>
-          <p>We do not use your information for advertising, profiling for commercial purposes, or any purpose unrelated to our nonprofit mission of connecting students with career opportunities.</p>
-        </section>
+        <hr class="legal-divider" />
 
-        <section>
-          <h2>4. Information Sharing</h2>
-          <p>We do not sell, rent, or share your personal information with third parties for commercial purposes. We may share information only in the following limited circumstances:</p>
-          <ul>
-            <li><strong>Service providers:</strong> We use trusted infrastructure providers (hosting, databases) to operate our services. These providers process data only on our behalf and under confidentiality obligations.</li>
-            <li><strong>Legal requirements:</strong> We may disclose information if required by law, court order, or to protect the rights and safety of LabLink Initiative or others.</li>
-            <li><strong>With your consent:</strong> We may share information for other purposes with your explicit consent.</li>
-          </ul>
-        </section>
+        <h2 id="what-we-collect" class="section-anchor">2. Information We Collect</h2>
+        <p><strong>Information you provide directly:</strong></p>
+        <ul>
+          <li><strong>Account information</strong> — name, email address, and password when you register for the CDP.</li>
+          <li><strong>Profile information</strong> — academic background, career interests, skills, and related information you choose to enter in the Career Development Platform.</li>
+          <li><strong>Resume data</strong> — if you upload a resume, we extract and store the text content to power career pathway and gap analysis features.</li>
+          <li><strong>Communications</strong> — emails or messages you send us directly.</li>
+          <li><strong>Newsletter sign-ups</strong> — your email address and name if you subscribe to our newsletter.</li>
+        </ul>
+        <p><strong>Information collected automatically:</strong></p>
+        <ul>
+          <li><strong>Usage data</strong> — pages visited, features used, and interactions with our platforms (collected in server logs).</li>
+          <li><strong>Device and browser information</strong> — browser type, operating system, and IP address.</li>
+        </ul>
+        <p><strong>Information from third parties:</strong></p>
+        <ul>
+          <li><strong>Google OAuth</strong> — if you sign in with Google, we receive your name, email address, and Google account ID from Google. We do not receive your Google password.</li>
+        </ul>
 
-        <section>
-          <h2>5. Data Storage and Security</h2>
-          <p>Your data is stored on servers located in the United States. We implement reasonable technical and organizational measures to protect your information, including encrypted connections (HTTPS), secure credential storage, and regular database backups.</p>
-          <p>No method of transmission over the internet is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.</p>
-          <p>Uploaded documents (resumes) are stored in a private, access-controlled location and are not publicly accessible.</p>
-        </section>
+        <hr class="legal-divider" />
 
-        <section>
-          <h2>6. Cookies and Tracking</h2>
-          <p>Our website may use essential cookies to support navigation and authenticated sessions. We do not currently use tracking or advertising cookies. If this changes, we will update this Policy and seek your consent where required.</p>
-        </section>
+        <h2 id="how-we-use" class="section-anchor">3. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+          <li>Create and manage your account on our platforms.</li>
+          <li>Provide career pathway analysis, program recommendations, and gap analysis features in the CDP.</li>
+          <li>Send you the newsletter and program opportunity updates you subscribe to.</li>
+          <li>Respond to your questions and support requests.</li>
+          <li>Improve our services and understand how students use our platforms.</li>
+          <li>Fulfill our nonprofit mission of connecting students with career opportunities.</li>
+        </ul>
+        <p>We do not use your information for advertising, profiling for commercial purposes, or any purpose unrelated to our mission.</p>
 
-        <section>
-          <h2>7. Third-Party Services</h2>
-          <p><strong>Google OAuth:</strong> If you sign in with Google, your authentication is handled by Google. We receive only basic profile information (name, email, Google ID) from Google and do not have access to your Google account or other Google data. Google's use of your data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
-          <p><strong>Fonts:</strong> We use Google Fonts, which may log IP addresses for delivery purposes. No personal profile data is associated with these requests.</p>
-          <p><strong>External links:</strong> Our site links to third-party program portals (e.g., DOE, NASA, NIH). We are not responsible for the privacy practices of those sites.</p>
-        </section>
+        <hr class="legal-divider" />
 
-        <section>
-          <h2>8. Your Rights and Choices</h2>
-          <p>You have the right to:</p>
-          <ul>
-            <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
-            <li><strong>Correction:</strong> Update or correct inaccurate information in your CDP profile at any time.</li>
-            <li><strong>Deletion:</strong> Request deletion of your account and associated data. Contact us at the email below and we will process your request promptly.</li>
-            <li><strong>Unsubscribe:</strong> Opt out of newsletter emails via the unsubscribe link in any email we send.</li>
-          </ul>
-          <p>To exercise any of these rights, contact us at <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a>.</p>
-        </section>
+        <h2 id="sharing" class="section-anchor">4. Information Sharing</h2>
+        <p>We do not sell, rent, or trade your personal information. We share information only in the following limited circumstances:</p>
+        <ul>
+          <li><strong>Service providers</strong> — we use third-party services such as Vercel (website hosting), Google (OAuth sign-in), and email delivery services. These providers process data on our behalf and are bound by confidentiality obligations.</li>
+          <li><strong>Legal requirements</strong> — we may disclose information if required by law, court order, or to protect the rights, property, or safety of LLI, our users, or the public.</li>
+          <li><strong>Organizational transfers</strong> — if LLI merges with or transfers operations to another nonprofit organization, your information may transfer as part of that transaction, subject to equivalent privacy protections.</li>
+        </ul>
+        <p>We never share your resume, profile data, or personal information with program sponsors, internship hosts, or other third parties without your explicit consent.</p>
 
-        <section>
-          <h2>9. Children's Privacy</h2>
-          <p>Our services are not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we learn we have collected information from a child under 13, we will delete it promptly.</p>
-        </section>
+        <hr class="legal-divider" />
 
-        <section>
-          <h2>10. Changes to This Policy</h2>
-          <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated Policy on this page with a revised effective date. We encourage you to review this Policy periodically.</p>
-        </section>
+        <h2 id="cookies" class="section-anchor">5. Cookies and Tracking</h2>
+        <p>Our platforms use minimal cookies and local browser storage:</p>
+        <ul>
+          <li><strong>Authentication tokens</strong> — stored in your browser's local storage to keep you signed in to the CDP.</li>
+          <li><strong>Session preferences</strong> — small pieces of data to remember your settings and preferences.</li>
+        </ul>
+        <p>We do not use third-party advertising cookies, tracking pixels, or behavioral analytics tools. We do not participate in cross-site tracking.</p>
+        <p>You can clear your browser's local storage at any time through your browser settings, which will sign you out of our platforms.</p>
 
-        <section>
-          <h2>11. Contact Us</h2>
-          <p>If you have questions, concerns, or requests regarding this Privacy Policy, please contact us:</p>
-          <ul>
-            <li>Email: <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a></li>
-            <li>Website: <a href="https://lablinkinitiative.org">lablinkinitiative.org</a></li>
-          </ul>
-        </section>
+        <hr class="legal-divider" />
+
+        <h2 id="data-retention" class="section-anchor">6. Data Retention</h2>
+        <p>We retain your information for as long as your account is active or as needed to provide our services. If you request account deletion, we will delete your personal information within 30 days, except where retention is required by law or for legitimate operational purposes (such as fraud prevention).</p>
+        <p>Newsletter subscribers who unsubscribe will be removed from our mailing list promptly.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="security" class="section-anchor">7. Security</h2>
+        <p>We take reasonable technical and organizational measures to protect your information, including:</p>
+        <ul>
+          <li>HTTPS encryption for all data in transit.</li>
+          <li>Hashed and salted password storage (we never store passwords in plain text).</li>
+          <li>JWT-based authentication with expiring tokens.</li>
+          <li>Nightly encrypted database backups.</li>
+        </ul>
+        <p>No method of transmission over the internet is 100% secure. While we work hard to protect your information, we cannot guarantee absolute security. If you believe your account has been compromised, please contact us immediately at <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a>.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="your-rights" class="section-anchor">8. Your Rights</h2>
+        <p>You have the following rights regarding your personal information:</p>
+        <ul>
+          <li><strong>Access</strong> — you may request a copy of the personal information we hold about you.</li>
+          <li><strong>Correction</strong> — you may update or correct your information through your account profile, or by contacting us.</li>
+          <li><strong>Deletion</strong> — you may request that we delete your account and associated personal data.</li>
+          <li><strong>Portability</strong> — you may request an export of your CDP profile data.</li>
+          <li><strong>Unsubscribe</strong> — you may unsubscribe from our newsletter at any time using the link in any email we send.</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a>. We will respond within 30 days.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="children" class="section-anchor">9. Children's Privacy</h2>
+        <p>Our services are not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected information from a child under 13, please contact us immediately and we will delete it.</p>
+        <p>Users between 13 and 18 should have a parent or guardian review this Privacy Policy before creating an account.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="changes" class="section-anchor">10. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last Updated" date at the top of this page. For significant changes, we will make reasonable efforts to notify registered users by email or through a notice on our website.</p>
+        <p>Your continued use of our services after changes are posted constitutes your acceptance of the revised policy.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="contact" class="section-anchor">11. Contact Us</h2>
+        <p>If you have questions, concerns, or requests related to this Privacy Policy or your personal data, please contact us:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a></li>
+          <li><strong>Organization:</strong> LabLink Initiative (501(c)(3) Nonprofit)</li>
+        </ul>
+        <p>We take privacy concerns seriously and will respond to all inquiries within 30 days.</p>
 
       </div>
     </div>
   </main>
 
   <footer role="contentinfo">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="footer-logo">Lab<em>Link</em> Initiative</a>
-        <p>Empowering the next generation of leaders through career experiences across National Laboratories, federal agencies, industry, and academia.</p>
-        <span class="nonprofit-mark">501(c)(3) Nonprofit</span>
-      </div>
-      <div class="footer-col">
-        <h4>Programs</h4>
-        <ul class="footer-links">
-          <li><a href="https://intern.lablinkinitiative.org">Internship Portal</a></li>
-          <li><a href="https://cdp.lablinkinitiative.org">CDP Platform</a></li>
-          <li><a href="https://newsletter.lablinkinitiative.org">Newsletter</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Organization</h4>
-        <ul class="footer-links">
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/about.html#founders">Our Founders</a></li>
-          <li><a href="/about.html#partners">Partners</a></li>
-          <li><a href="/donate.html">Donate</a></li>
-          <li><a href="mailto:lablinkinitiative@gmail.com">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <ul class="footer-links">
-          <li><a href="/path-to-national-lab-internship.pdf" download>Career Guide (PDF)</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="https://science.osti.gov/wdts/suli" target="_blank" rel="noopener">About SULI</a></li>
-          <li><a href="https://science.osti.gov/wdts/cci" target="_blank" rel="noopener">About CCI</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 LabLink Initiative. All rights reserved.</p>
-      <div class="footer-legal-links">
+    <div class="footer-inner">
+      <span>&copy; 2026 <a href="/">LabLink Initiative</a> &middot; 501(c)(3) Nonprofit</span>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/donate.html">Donate</a>
+        <a href="/privacy.html" aria-current="page">Privacy Policy</a>
         <a href="/terms.html">Terms of Service</a>
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a>
-      </div>
+      </nav>
     </div>
   </footer>
 
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    let isOpen = false;
+    function openNav() { isOpen = true; mobileNav.classList.add('is-open'); menuBtn.setAttribute('aria-expanded','true'); menuBtn.setAttribute('aria-label','Close navigation'); document.body.style.overflow='hidden'; }
+    function closeNav() { isOpen = false; mobileNav.classList.remove('is-open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.setAttribute('aria-label','Open navigation'); document.body.style.overflow=''; }
+    menuBtn.addEventListener('click', () => isOpen ? closeNav() : openNav());
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', closeNav));
+    window.matchMedia('(min-width:768px)').addEventListener('change', e => { if(e.matches && isOpen) closeNav(); });
+  </script>
 </body>
 </html>
