@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — LabLink Initiative</title>
+  <meta name="description" content="Terms of Service for LabLink Initiative — a 501(c)(3) nonprofit connecting students with career experiences." />
+  <meta name="theme-color" content="#2E3A23" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <style>
+    @layer reset, tokens, base, layout, components;
+    @layer reset {
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { min-height: 100dvh; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+      img, picture, video, canvas, svg { display: block; max-width: 100%; }
+      input, button, textarea, select { font: inherit; }
+      p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      }
+    }
+    @layer tokens {
+      :root {
+        --brand-900: #2E3A23; --brand-700: #4A5F39; --brand-500: #6E8A53;
+        --brand-300: #A7BE8E; --brand-100: #DCE8CC;
+        --accent-lime: #A5C43A; --accent-lime-dark: #8AAF1E; --on-lime: #1D2A10;
+        --canvas: #FAF8F0; --surface: #F3F0E6; --border: #C9C2AE;
+        --text-strong: #111312; --text-default: #253021; --text-muted: #5F6A58; --white: #FFFFFF;
+        --text-xs: clamp(0.72rem, 2vw, 0.8rem); --text-sm: clamp(0.875rem, 2.5vw, 0.9375rem);
+        --text-base: clamp(1rem, 3vw, 1.0625rem); --text-lg: clamp(1.1rem, 3vw, 1.25rem);
+        --text-xl: clamp(1.25rem, 4vw, 1.5rem); --text-2xl: clamp(1.5rem, 5vw, 2.25rem);
+        --text-hero: clamp(2rem, 7vw, 3.25rem);
+        --sp-sm: clamp(0.75rem, 3vw, 1rem); --sp-md: clamp(1rem, 4vw, 1.5rem);
+        --sp-lg: clamp(1.5rem, 5vw, 2.5rem); --sp-xl: clamp(2rem, 6vw, 4rem);
+        --sp-2xl: clamp(3rem, 8vw, 6rem);
+        --max-w: 1100px; --max-w-sm: 680px;
+        --radius-sm: 6px; --radius-md: 12px; --radius-lg: 20px;
+        --ease: cubic-bezier(0.25,0.46,0.45,0.94); --t-fast: 120ms; --t-base: 200ms;
+      }
+    }
+    @layer base {
+      body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--canvas); color: var(--text-default); font-size: var(--text-base); }
+      h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; color: var(--text-strong); letter-spacing: -0.01em; }
+      a { color: inherit; text-decoration: none; }
+      :focus-visible { outline: 3px solid var(--accent-lime); outline-offset: 3px; border-radius: var(--radius-sm); }
+      :focus:not(:focus-visible) { outline: none; }
+    }
+    @layer layout {
+      .wrap { width: min(var(--max-w), 100% - 2rem); margin-inline: auto; }
+    }
+    @layer components {
+      .skip-link { position: absolute; top: -100%; left: 1rem; z-index: 9999; background: var(--brand-700); color: var(--white); padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 0 0 var(--radius-md) var(--radius-md); transition: top var(--t-fast) var(--ease); }
+      .skip-link:focus { top: 0; }
+
+      .site-nav { position: sticky; top: 0; z-index: 200; background: rgba(250,248,242,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+      .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; max-width: var(--max-w); margin-inline: auto; padding: 0 1.25rem; height: 60px; }
+      .nav-logo { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(1.1rem, 3vw, 1.375rem); font-weight: 400; letter-spacing: -0.02em; color: var(--brand-900); text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+      .nav-logo em { font-style: italic; color: var(--brand-700); }
+      .nav-links { display: none; align-items: center; gap: 1.25rem; list-style: none; }
+      @media (min-width: 768px) { .nav-links { display: flex; } }
+      .nav-links a { font-size: var(--text-sm); font-weight: 500; color: var(--text-muted); text-decoration: none; transition: color var(--t-fast); }
+      .nav-links a:hover { color: var(--text-strong); }
+      .nav-links .nav-cta { background: var(--brand-900); color: #fff; padding: 0.5rem 1.125rem; border-radius: 3px; font-weight: 600; transition: background var(--t-fast); }
+      .nav-links .nav-cta:hover { background: #1F2A17; }
+      .hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; background: none; border: none; cursor: pointer; padding: 10px; }
+      @media (min-width: 768px) { .hamburger { display: none; } }
+      .bar { display: block; width: 100%; height: 2px; background: var(--text-strong); border-radius: 0; transition: transform var(--t-base) var(--ease), opacity var(--t-fast); }
+      .hamburger[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+      .hamburger[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .mobile-nav { position: fixed; inset: 60px 0 0; background: var(--canvas); z-index: 199; padding: 1.5rem 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; transform: translateX(100%); transition: transform var(--t-base) var(--ease); overflow-y: auto; }
+      .mobile-nav.is-open { transform: translateX(0); }
+      .mobile-nav a { display: flex; align-items: center; min-height: 52px; font-size: 1.125rem; font-weight: 500; color: var(--text-default); border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
+      .mobile-nav a:last-child { border-bottom: none; }
+      .mobile-nav a:hover { color: var(--brand-700); }
+      .mobile-nav-cta { margin-top: 1rem; display: flex !important; align-items: center; justify-content: center; background: var(--brand-900) !important; color: #fff !important; font-weight: 700 !important; min-height: 54px !important; border-bottom: none !important; }
+
+      .page-hero { background: linear-gradient(140deg, var(--brand-900) 0%, #3a5230 60%, var(--brand-700) 100%); color: var(--white); padding: var(--sp-xl) 1.25rem var(--sp-lg); text-align: center; position: relative; overflow: hidden; }
+      .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 85% 20%, rgba(165,196,58,0.07) 0%, transparent 70%); pointer-events: none; }
+      .breadcrumb { font-size: var(--text-xs); color: var(--brand-300); margin-bottom: var(--sp-sm); }
+      .breadcrumb a { color: var(--brand-300); }
+      .breadcrumb a:hover { color: var(--white); }
+      .page-hero h1 { position: relative; font-size: var(--text-hero); color: var(--white); max-width: 700px; margin-inline: auto; margin-bottom: 0.75rem; }
+      .page-hero > .hero-sub { position: relative; color: var(--brand-300); font-size: var(--text-lg); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+      .legal-body { padding: var(--sp-2xl) 1.25rem; }
+      .legal-inner { max-width: 720px; margin-inline: auto; }
+      .legal-inner h2 { font-size: var(--text-xl); margin-top: var(--sp-lg); margin-bottom: 0.6rem; color: var(--text-strong); }
+      .legal-inner h2:first-child { margin-top: 0; }
+      .legal-inner p { color: var(--text-muted); line-height: 1.8; margin-bottom: 0.875rem; }
+      .legal-inner ul { padding-left: 1.5rem; margin-bottom: 0.875rem; }
+      .legal-inner ul li { color: var(--text-muted); line-height: 1.8; margin-bottom: 0.35rem; }
+      .legal-inner a { color: var(--brand-700); text-decoration: underline; text-underline-offset: 2px; }
+      .legal-inner a:hover { color: var(--brand-900); }
+      .legal-meta { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: var(--sp-lg); font-size: var(--text-sm); color: var(--text-muted); }
+      .legal-toc { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--sp-md); margin-bottom: var(--sp-lg); }
+      .legal-toc h3 { font-family: 'Inter', sans-serif; font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--brand-500); margin-bottom: 0.75rem; }
+      .legal-toc ol { padding-left: 1.25rem; }
+      .legal-toc ol li { font-size: var(--text-sm); color: var(--text-muted); margin-bottom: 0.3rem; }
+      .legal-toc ol li a { color: var(--brand-700); text-decoration: none; }
+      .legal-toc ol li a:hover { text-decoration: underline; }
+      .section-anchor { scroll-margin-top: 80px; }
+      hr.legal-divider { border: none; border-top: 1px solid var(--border); margin: var(--sp-lg) 0; }
+
+      footer { background: var(--brand-900); color: var(--brand-300); padding: var(--sp-md) 1.25rem; font-size: var(--text-sm); }
+      .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+      @media (min-width: 600px) { .footer-inner { flex-direction: row; align-items: center; justify-content: space-between; } }
+      footer a { color: var(--brand-300); }
+      footer a:hover { color: var(--white); }
+      .footer-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="LabLink Initiative home">Lab<em>Link</em> Initiative</a>
+      <ul class="nav-links" role="list">
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/donate.html" class="nav-cta">Donate</a></li>
+      </ul>
+      <button class="hamburger" id="menu-btn" aria-expanded="false" aria-label="Open navigation" aria-controls="mobile-nav">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="/about.html">About Us</a>
+    <a href="/blog/">Blog</a>
+    <a href="/donate.html" class="mobile-nav-cta">Support Our Mission →</a>
+  </nav>
+
+  <header class="page-hero">
+    <div class="breadcrumb"><a href="/">Home</a> / Terms of Service</div>
+    <h1>Terms of Service</h1>
+    <p class="hero-sub">Please read these terms carefully before using LabLink Initiative platforms and services.</p>
+  </header>
+
+  <main id="main-content">
+    <div class="legal-body">
+      <div class="legal-inner">
+
+        <div class="legal-meta">
+          <strong>Effective Date:</strong> March 1, 2026 &nbsp;&middot;&nbsp;
+          <strong>Last Updated:</strong> March 1, 2026 &nbsp;&middot;&nbsp;
+          Questions? <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a>
+        </div>
+
+        <div class="legal-toc">
+          <h3>Contents</h3>
+          <ol>
+            <li><a href="#acceptance">Acceptance of Terms</a></li>
+            <li><a href="#services">About Our Services</a></li>
+            <li><a href="#eligibility">Eligibility</a></li>
+            <li><a href="#accounts">Accounts and Registration</a></li>
+            <li><a href="#conduct">Acceptable Use</a></li>
+            <li><a href="#ip">Intellectual Property</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#disclaimer">Disclaimer of Warranties</a></li>
+            <li><a href="#limitation">Limitation of Liability</a></li>
+            <li><a href="#changes">Changes to These Terms</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ol>
+        </div>
+
+        <h2 id="acceptance" class="section-anchor">1. Acceptance of Terms</h2>
+        <p>By accessing or using any website, platform, or service operated by LabLink Initiative ("LLI," "we," "us," or "our"), including lablinkinitiative.org and cdp.lablinkinitiative.org, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+        <p>LabLink Initiative is a 501(c)(3) nonprofit organization. Our services are provided free of charge to students.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="services" class="section-anchor">2. About Our Services</h2>
+        <p>LabLink Initiative operates several free platforms to help students access career development resources:</p>
+        <ul>
+          <li><strong>Career Development Platform (CDP)</strong> — a tool for students to discover internship programs, build career pathways, and analyze skill gaps.</li>
+          <li><strong>Internship Portal</strong> — a curated listing of paid STEM internship and fellowship opportunities.</li>
+          <li><strong>Newsletter</strong> — periodic updates about opportunities, resources, and organizational news.</li>
+          <li><strong>Website</strong> — informational content about our mission, team, and programs.</li>
+        </ul>
+        <p>Our services connect students with information about third-party programs (such as DOE SULI, NASA internships, and similar opportunities). We do not operate those programs and are not responsible for their admissions decisions, timelines, or outcomes.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="eligibility" class="section-anchor">3. Eligibility</h2>
+        <p>Our services are designed for college students and recent graduates in the United States who are at least 13 years of age. By using our services, you represent that you meet these criteria. If you are under 18, you represent that your parent or guardian has reviewed and agreed to these terms on your behalf.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="accounts" class="section-anchor">4. Accounts and Registration</h2>
+        <p>Some of our platforms (including the CDP) allow you to create an account. When you register, you agree to:</p>
+        <ul>
+          <li>Provide accurate, complete, and current information.</li>
+          <li>Maintain the security of your password and account credentials.</li>
+          <li>Notify us promptly at <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a> if you suspect unauthorized access to your account.</li>
+          <li>Take responsibility for all activity that occurs under your account.</li>
+        </ul>
+        <p>We reserve the right to suspend or terminate accounts that violate these terms or that we determine are being used fraudulently.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="conduct" class="section-anchor">5. Acceptable Use</h2>
+        <p>You agree not to use our services to:</p>
+        <ul>
+          <li>Post or transmit false, misleading, or fraudulent information.</li>
+          <li>Violate any applicable local, state, national, or international law or regulation.</li>
+          <li>Impersonate any person or entity, or misrepresent your affiliation with any person or entity.</li>
+          <li>Attempt to gain unauthorized access to our systems or the accounts of other users.</li>
+          <li>Scrape, crawl, or systematically extract data from our platforms without prior written consent.</li>
+          <li>Transmit spam, unsolicited messages, or any form of commercial solicitation to other users.</li>
+          <li>Interfere with or disrupt the integrity or performance of our services.</li>
+        </ul>
+        <p>We reserve the right to remove any content that violates these terms and to terminate access for users who engage in prohibited conduct.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="ip" class="section-anchor">6. Intellectual Property</h2>
+        <p>All content on our platforms — including text, graphics, logos, and software — is owned by or licensed to LabLink Initiative and is protected by applicable copyright and trademark laws.</p>
+        <p>You may access and use our content for personal, non-commercial purposes related to your career development. You may not reproduce, distribute, or create derivative works from our content without prior written permission.</p>
+        <p>By submitting content to our platforms (such as resume data or profile information), you grant LLI a limited, non-exclusive license to store and process that content solely to provide our services to you.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="privacy" class="section-anchor">7. Privacy</h2>
+        <p>Your privacy matters to us. Please review our <a href="/privacy.html">Privacy Policy</a>, which is incorporated into these Terms by reference and describes how we collect, use, and protect your personal information.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="disclaimer" class="section-anchor">8. Disclaimer of Warranties</h2>
+        <p>Our services are provided "as is" and "as available" without warranties of any kind, either express or implied. We do not warrant that our services will be uninterrupted, error-free, or free of harmful components.</p>
+        <p>We do not guarantee that using our platforms will result in internship placements, job offers, or any specific career outcomes. We provide resources and connections — outcomes depend on many factors outside our control.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="limitation" class="section-anchor">9. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, LabLink Initiative and its officers, directors, employees, and volunteers shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, our services.</p>
+        <p>Because LabLink Initiative is a nonprofit organization providing free services, our total aggregate liability to you for any claims arising from your use of our services shall not exceed fifty dollars ($50).</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="changes" class="section-anchor">10. Changes to These Terms</h2>
+        <p>We may update these Terms of Service from time to time. When we do, we will update the "Last Updated" date at the top of this page. Continued use of our services after changes are posted constitutes your acceptance of the revised terms.</p>
+        <p>For significant changes, we will make reasonable efforts to notify users through our website or newsletter.</p>
+
+        <hr class="legal-divider" />
+
+        <h2 id="contact" class="section-anchor">11. Contact Us</h2>
+        <p>If you have questions about these Terms of Service, please contact us:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:lablinkinitiative@gmail.com">lablinkinitiative@gmail.com</a></li>
+          <li><strong>Organization:</strong> LabLink Initiative (501(c)(3) Nonprofit)</li>
+        </ul>
+
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <span>&copy; 2026 <a href="/">LabLink Initiative</a> &middot; 501(c)(3) Nonprofit</span>
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/donate.html">Donate</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html" aria-current="page">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    let isOpen = false;
+    function openNav() { isOpen = true; mobileNav.classList.add('is-open'); menuBtn.setAttribute('aria-expanded','true'); menuBtn.setAttribute('aria-label','Close navigation'); document.body.style.overflow='hidden'; }
+    function closeNav() { isOpen = false; mobileNav.classList.remove('is-open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.setAttribute('aria-label','Open navigation'); document.body.style.overflow=''; }
+    menuBtn.addEventListener('click', () => isOpen ? closeNav() : openNav());
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', closeNav));
+    window.matchMedia('(min-width:768px)').addEventListener('change', e => { if(e.matches && isOpen) closeNav(); });
+  </script>
+</body>
+</html>
